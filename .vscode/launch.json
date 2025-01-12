@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:TelegramBotAPI}",
+            "name": "Debug Prepare",
+            "program": "${workspaceFolder:TelegramBotAPI}/.build/debug/Prepare",
+            "preLaunchTask": "swift: Build Debug Prepare"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:TelegramBotAPI}",
+            "name": "Release Prepare",
+            "program": "${workspaceFolder:TelegramBotAPI}/.build/release/Prepare",
+            "preLaunchTask": "swift: Build Release Prepare"
+        }
+    ]
+}
