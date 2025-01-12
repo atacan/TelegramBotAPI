@@ -33,7 +33,7 @@ final class TelegramBotAPI_AHCTests {
     @Test
     func sendMessageToAnExistingChat() async throws {
         let chatId = getEnvironmentVariable("CHAT_ID")!
-        let message = "Hello, World!"
+        let message = "Hello, World! 🤖"
         let response = try await client.post_sol_sendMessage(
             .init(
                 body: .json(
