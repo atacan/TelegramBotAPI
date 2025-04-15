@@ -47,4 +47,43 @@ final class TelegramBotAPI_AHCTests {
 
         dump(response)
     }
+
+    @Test
+    func messageFormatting() async throws {
+        let chatId = getEnvironmentVariable("CHAT_ID")!
+        let message = """
+        __*Server Error:*__
+
+        ```swift
+        extension DependencyValues {
+            public var telegramClient: TelegramBotAPI_AHC.Client {
+                get { self[TelegramDependency.self] }
+                set { self[TelegramDependency.self] = newValue }
+            }
+        }
+        ```
+        """
+        let response = try await client.post_sol_sendMessage(
+            .init(
+                body: .json(
+                    .init(
+                        chat_id: .init(value2: chatId),
+                        text: message,
+                        parse_mode: "MarkdownV2"
+                    )
+                )
+            )
+        )
+
+        dump(response)
+    }
+}
+
+func escapeMarkdownV2(_ text: String) -> String {
+    let specialCharacters = ["_", "*", "[", "]", "(", ")", "~", "`", ">", "#", "+", "-", "=", "|", "{", "}", ".", "!"]
+    var escapedText = text
+    for char in specialCharacters {
+        escapedText = escapedText.replacingOccurrences(of: char, with: "\\" + char)
+    }
+    return escapedText
 }
