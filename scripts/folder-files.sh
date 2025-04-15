@@ -33,10 +33,11 @@ mkdir -p Tests/${PROJECT_NAME}_AHCTests/Resources
 touch Tests/${PROJECT_NAME}_AHCTests/Resources/.gitkeep
 
 # Create OpenAPI related files in project AHC
-touch Sources/${PROJECT_NAME}_AHC/openapi.yaml
-touch Sources/${PROJECT_NAME}_AHC/original.yaml
-touch Sources/${PROJECT_NAME}_AHC/openapi-generator-config.yaml
-cat <<EOL > Sources/${PROJECT_NAME}_AHC/openapi-generator-config.yaml
+mkdir assets
+# touch assets/openapi.yaml
+# touch assets/original.yaml
+touch assets/openapi-generator-config.yaml
+cat <<EOL > assets/openapi-generator-config.yaml
 generate:
   - types
   - client
