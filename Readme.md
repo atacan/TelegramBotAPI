@@ -82,7 +82,7 @@ do {
         .init(
             body: .json(
                 .init(
-                    chat_id: .init(value2: chatId),
+                    chatId: .init(value2: chatId),
                     text: message
                 )
             )
