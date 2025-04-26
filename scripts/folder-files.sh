@@ -7,30 +7,30 @@ PROJECT_NAME="$(basename "$(pwd)")"
 # swift package init --type library
 
 # Add products
-swift package add-product ${PROJECT_NAME}_AHC --type library --targets ${PROJECT_NAME}_AHC
+# swift package add-product ${PROJECT_NAME} --type library --targets ${PROJECT_NAME}
 
 # Add dependencies
-swift package add-dependency https://github.com/apple/swift-openapi-generator --from 1.0.0
-swift package add-dependency https://github.com/apple/swift-openapi-runtime --from 1.0.0
-swift package add-dependency https://github.com/swift-server/swift-openapi-async-http-client --from 1.0.0
+swift package add-dependency https://github.com/apple/swift-openapi-generator --from 1.7.0
+swift package add-dependency https://github.com/apple/swift-openapi-runtime --from 1.8.0
+swift package add-dependency https://github.com/swift-server/swift-openapi-async-http-client --from 1.1.0
 
 # Add targets
-swift package add-target ${PROJECT_NAME}_AHC --type library
+# swift package add-target ${PROJECT_NAME} --type library
 swift package add-target Prepare --type executable
 
 # Add test targets
-swift package add-target ${PROJECT_NAME}_AHCTests --type test --dependencies ${PROJECT_NAME}_AHC
+# swift package add-target ${PROJECT_NAME}Tests --type test --dependencies ${PROJECT_NAME}
 
 # Add target dependencies for AHC
-swift package add-target-dependency OpenAPIRuntime ${PROJECT_NAME}_AHC --package swift-openapi-runtime
-swift package add-target-dependency OpenAPIAsyncHTTPClient ${PROJECT_NAME}_AHC --package swift-openapi-async-http-client
+swift package add-target-dependency OpenAPIRuntime ${PROJECT_NAME} --package swift-openapi-runtime
+swift package add-target-dependency OpenAPIAsyncHTTPClient ${PROJECT_NAME} --package swift-openapi-async-http-client
 
 # Add platforms configuration after the first occurrence of the package name
 sed -i '' '0,/name: "'"${PROJECT_NAME}"'",/{s/name: "'"${PROJECT_NAME}"'",/name: "'"${PROJECT_NAME}"'",\n    platforms: [.macOS(.v14), .iOS(.v17), .watchOS(.v6), .tvOS(.v13)],/}' Package.swift
 
 # Create test directories
-mkdir -p Tests/${PROJECT_NAME}_AHCTests/Resources
-touch Tests/${PROJECT_NAME}_AHCTests/Resources/.gitkeep
+mkdir -p Tests/${PROJECT_NAME}Tests/Resources
+touch Tests/${PROJECT_NAME}Tests/Resources/.gitkeep
 
 # Create OpenAPI related files in project AHC
 mkdir assets
@@ -42,6 +42,7 @@ generate:
   - types
   - client
 accessModifier: public
+namingStrategy: idiomatic
 EOL
 
 # Create .env file
@@ -56,7 +57,7 @@ xcuserdata/
 DerivedData/
 .swiftpm
 .netrc
-.env
+.env*
 auth/
 
 # Audio files
@@ -68,13 +69,13 @@ auth/
 EOL
 
 # # use sed to add the exclude and resources configurations
-# # sed -i '' "s/name: \"${PROJECT_NAME}_AHC\",/name: \"${PROJECT_NAME}_AHC\",\n            exclude: [\n                \"openapi.yaml\",\n                \"original.yaml\",\n                \"openapi-generator-config.yaml\",\n            ],/" Package.swift
-# sed -i '' "s/dependencies: \[\"${PROJECT_NAME}_AHC\"\],/dependencies: [\"${PROJECT_NAME}_AHC\"],\n            resources: [.copy(\"Resources\")],/" Package.swift
+# # sed -i '' "s/name: \"${PROJECT_NAME}\",/name: \"${PROJECT_NAME}\",\n            exclude: [\n                \"openapi.yaml\",\n                \"original.yaml\",\n                \"openapi-generator-config.yaml\",\n            ],/" Package.swift
+# sed -i '' "s/dependencies: \[\"${PROJECT_NAME}\"\],/dependencies: [\"${PROJECT_NAME}\"],\n            resources: [.copy(\"Resources\")],/" Package.swift
 
 # Create some useful Swift files
 # get env variables
-touch Tests/${PROJECT_NAME}_AHCTests/getEnvVariables.swift
-cat <<EOL > Tests/${PROJECT_NAME}_AHCTests/getEnvVariables.swift
+touch Tests/${PROJECT_NAME}Tests/getEnvVariables.swift
+cat <<EOL > Tests/${PROJECT_NAME}Tests/getEnvVariables.swift
 import Foundation
 
 func getEnvironmentVariable(_ name: String) -> String? {
