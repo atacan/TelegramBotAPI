@@ -78,7 +78,7 @@ do {
     let chatId = "CHAT_ID"
     let message = "Hello from Swift!"
     
-    let response = try await client.post_sol_sendMessage(
+    let response = try await client.postSendMessage(
         .init(
             body: .json(
                 .init(
@@ -107,13 +107,13 @@ do {
     ```
     """
     
-    let response = try await client.post_sol_sendMessage(
+    let response = try await client.postSendMessage(
         .init(
             body: .json(
                 .init(
-                    chat_id: .init(value2: chatId),
+                    chatId: .init(value2: chatId),
                     text: message,
-                    parse_mode: "MarkdownV2"
+                    parseMode: "MarkdownV2"
                 )
             )
         )

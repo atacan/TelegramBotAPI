@@ -48,10 +48,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /userLogin`.
     /// - Remark: Generated from `#/paths//userLogin/post`.
-    public func post_sol_userLogin(_ input: Operations.post_sol_userLogin.Input) async throws -> Operations.post_sol_userLogin.Output {
+    public func postUserLogin(_ input: Operations.PostUserLogin.Input) async throws -> Operations.PostUserLogin.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_userLogin.id,
+            forOperation: Operations.PostUserLogin.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/userLogin",
@@ -88,7 +88,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .phone_number(wrapped):
+                            case let .phoneNumber(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -120,7 +120,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_userLogin.Output.Ok.Body
+                    let body: Operations.PostUserLogin.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -130,7 +130,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_userLogin.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostUserLogin.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -142,7 +142,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_userLogin.Output.Default.Body
+                    let body: Operations.PostUserLogin.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -175,10 +175,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /authCode`.
     /// - Remark: Generated from `#/paths//authCode/post`.
-    public func post_sol_authCode(_ input: Operations.post_sol_authCode.Input) async throws -> Operations.post_sol_authCode.Output {
+    public func postAuthCode(_ input: Operations.PostAuthCode.Input) async throws -> Operations.PostAuthCode.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_authCode.id,
+            forOperation: Operations.PostAuthCode.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/authCode",
@@ -247,7 +247,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_authCode.Output.Ok.Body
+                    let body: Operations.PostAuthCode.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -257,7 +257,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_authCode.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostAuthCode.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -269,7 +269,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_authCode.Output.Default.Body
+                    let body: Operations.PostAuthCode.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -304,10 +304,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /authPassword`.
     /// - Remark: Generated from `#/paths//authPassword/post`.
-    public func post_sol_authPassword(_ input: Operations.post_sol_authPassword.Input) async throws -> Operations.post_sol_authPassword.Output {
+    public func postAuthPassword(_ input: Operations.PostAuthPassword.Input) async throws -> Operations.PostAuthPassword.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_authPassword.id,
+            forOperation: Operations.PostAuthPassword.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/authPassword",
@@ -376,7 +376,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_authPassword.Output.Ok.Body
+                    let body: Operations.PostAuthPassword.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -386,7 +386,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_authPassword.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostAuthPassword.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -398,7 +398,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_authPassword.Output.Default.Body
+                    let body: Operations.PostAuthPassword.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -433,10 +433,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /registerUser`.
     /// - Remark: Generated from `#/paths//registerUser/post`.
-    public func post_sol_registerUser(_ input: Operations.post_sol_registerUser.Input) async throws -> Operations.post_sol_registerUser.Output {
+    public func postRegisterUser(_ input: Operations.PostRegisterUser.Input) async throws -> Operations.PostRegisterUser.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_registerUser.id,
+            forOperation: Operations.PostRegisterUser.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/registerUser",
@@ -476,7 +476,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .first_name(wrapped):
+                            case let .firstName(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -490,7 +490,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .last_name(wrapped):
+                            case let .lastName(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -504,7 +504,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .disable_notification(wrapped):
+                            case let .disableNotification(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -536,7 +536,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_registerUser.Output.Ok.Body
+                    let body: Operations.PostRegisterUser.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -546,7 +546,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_registerUser.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostRegisterUser.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -558,7 +558,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_registerUser.Output.Default.Body
+                    let body: Operations.PostRegisterUser.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -589,10 +589,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /optimizeMemory`.
     /// - Remark: Generated from `#/paths//optimizeMemory/post`.
-    public func post_sol_optimizeMemory(_ input: Operations.post_sol_optimizeMemory.Input) async throws -> Operations.post_sol_optimizeMemory.Output {
+    public func postOptimizeMemory(_ input: Operations.PostOptimizeMemory.Input) async throws -> Operations.PostOptimizeMemory.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_optimizeMemory.id,
+            forOperation: Operations.PostOptimizeMemory.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/optimizeMemory",
@@ -613,7 +613,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_optimizeMemory.Output.Ok.Body
+                    let body: Operations.PostOptimizeMemory.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -623,7 +623,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_optimizeMemory.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostOptimizeMemory.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -635,7 +635,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_optimizeMemory.Output.Default.Body
+                    let body: Operations.PostOptimizeMemory.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -666,10 +666,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /getMessageInfo`.
     /// - Remark: Generated from `#/paths//getMessageInfo/post`.
-    public func post_sol_getMessageInfo(_ input: Operations.post_sol_getMessageInfo.Input) async throws -> Operations.post_sol_getMessageInfo.Output {
+    public func postGetMessageInfo(_ input: Operations.PostGetMessageInfo.Input) async throws -> Operations.PostGetMessageInfo.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_getMessageInfo.id,
+            forOperation: Operations.PostGetMessageInfo.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/getMessageInfo",
@@ -707,7 +707,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -721,7 +721,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .message_id(wrapped):
+                            case let .messageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -753,7 +753,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getMessageInfo.Output.Ok.Body
+                    let body: Operations.PostGetMessageInfo.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -763,7 +763,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_getMessageInfo.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostGetMessageInfo.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -775,7 +775,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getMessageInfo.Output.Default.Body
+                    let body: Operations.PostGetMessageInfo.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -808,10 +808,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /getChatMembers`.
     /// - Remark: Generated from `#/paths//getChatMembers/post`.
-    public func post_sol_getChatMembers(_ input: Operations.post_sol_getChatMembers.Input) async throws -> Operations.post_sol_getChatMembers.Output {
+    public func postGetChatMembers(_ input: Operations.PostGetChatMembers.Input) async throws -> Operations.PostGetChatMembers.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_getChatMembers.id,
+            forOperation: Operations.PostGetChatMembers.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/getChatMembers",
@@ -853,7 +853,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -941,7 +941,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getChatMembers.Output.Ok.Body
+                    let body: Operations.PostGetChatMembers.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -951,7 +951,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_getChatMembers.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostGetChatMembers.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -963,7 +963,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getChatMembers.Output.Default.Body
+                    let body: Operations.PostGetChatMembers.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1008,10 +1008,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /deleteMessages`.
     /// - Remark: Generated from `#/paths//deleteMessages/post`.
-    public func post_sol_deleteMessages(_ input: Operations.post_sol_deleteMessages.Input) async throws -> Operations.post_sol_deleteMessages.Output {
+    public func postDeleteMessages(_ input: Operations.PostDeleteMessages.Input) async throws -> Operations.PostDeleteMessages.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_deleteMessages.id,
+            forOperation: Operations.PostDeleteMessages.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/deleteMessages",
@@ -1053,7 +1053,7 @@ public struct Client: APIProtocol {
                         ],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -1067,7 +1067,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .message_ids(wrapped):
+                            case let .messageIds(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -1127,7 +1127,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_deleteMessages.Output.Ok.Body
+                    let body: Operations.PostDeleteMessages.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1137,7 +1137,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_deleteMessages.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostDeleteMessages.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -1149,7 +1149,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_deleteMessages.Output.Default.Body
+                    let body: Operations.PostDeleteMessages.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1180,10 +1180,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /ping`.
     /// - Remark: Generated from `#/paths//ping/post`.
-    public func post_sol_ping(_ input: Operations.post_sol_ping.Input) async throws -> Operations.post_sol_ping.Output {
+    public func postPing(_ input: Operations.PostPing.Input) async throws -> Operations.PostPing.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_ping.id,
+            forOperation: Operations.PostPing.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/ping",
@@ -1204,7 +1204,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_ping.Output.Ok.Body
+                    let body: Operations.PostPing.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1214,7 +1214,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_ping.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostPing.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -1226,7 +1226,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_ping.Output.Default.Body
+                    let body: Operations.PostPing.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1259,10 +1259,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /getChats`.
     /// - Remark: Generated from `#/paths//getChats/post`.
-    public func post_sol_getChats(_ input: Operations.post_sol_getChats.Input) async throws -> Operations.post_sol_getChats.Output {
+    public func postGetChats(_ input: Operations.PostGetChats.Input) async throws -> Operations.PostGetChats.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_getChats.id,
+            forOperation: Operations.PostGetChats.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/getChats",
@@ -1299,7 +1299,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .offset_chat_id(wrapped):
+                            case let .offsetChatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -1331,7 +1331,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getChats.Output.Ok.Body
+                    let body: Operations.PostGetChats.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1341,7 +1341,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_getChats.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostGetChats.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -1353,7 +1353,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getChats.Output.Default.Body
+                    let body: Operations.PostGetChats.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1386,10 +1386,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /getCommonChats`.
     /// - Remark: Generated from `#/paths//getCommonChats/post`.
-    public func post_sol_getCommonChats(_ input: Operations.post_sol_getCommonChats.Input) async throws -> Operations.post_sol_getCommonChats.Output {
+    public func postGetCommonChats(_ input: Operations.PostGetCommonChats.Input) async throws -> Operations.PostGetCommonChats.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_getCommonChats.id,
+            forOperation: Operations.PostGetCommonChats.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/getCommonChats",
@@ -1428,7 +1428,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .user_id(wrapped):
+                            case let .userId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -1442,7 +1442,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .offset_chat_id(wrapped):
+                            case let .offsetChatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -1474,7 +1474,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getCommonChats.Output.Ok.Body
+                    let body: Operations.PostGetCommonChats.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1484,7 +1484,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_getCommonChats.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostGetCommonChats.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -1496,7 +1496,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getCommonChats.Output.Default.Body
+                    let body: Operations.PostGetCommonChats.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1529,10 +1529,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /getInactiveChats`.
     /// - Remark: Generated from `#/paths//getInactiveChats/post`.
-    public func post_sol_getInactiveChats(_ input: Operations.post_sol_getInactiveChats.Input) async throws -> Operations.post_sol_getInactiveChats.Output {
+    public func postGetInactiveChats(_ input: Operations.PostGetInactiveChats.Input) async throws -> Operations.PostGetInactiveChats.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_getInactiveChats.id,
+            forOperation: Operations.PostGetInactiveChats.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/getInactiveChats",
@@ -1553,7 +1553,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getInactiveChats.Output.Ok.Body
+                    let body: Operations.PostGetInactiveChats.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1563,7 +1563,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_getInactiveChats.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostGetInactiveChats.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -1575,7 +1575,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getInactiveChats.Output.Default.Body
+                    let body: Operations.PostGetInactiveChats.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1608,10 +1608,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /searchPublicChats`.
     /// - Remark: Generated from `#/paths//searchPublicChats/post`.
-    public func post_sol_searchPublicChats(_ input: Operations.post_sol_searchPublicChats.Input) async throws -> Operations.post_sol_searchPublicChats.Output {
+    public func postSearchPublicChats(_ input: Operations.PostSearchPublicChats.Input) async throws -> Operations.PostSearchPublicChats.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_searchPublicChats.id,
+            forOperation: Operations.PostSearchPublicChats.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/searchPublicChats",
@@ -1680,7 +1680,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_searchPublicChats.Output.Ok.Body
+                    let body: Operations.PostSearchPublicChats.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1690,7 +1690,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_searchPublicChats.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSearchPublicChats.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -1702,7 +1702,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_searchPublicChats.Output.Default.Body
+                    let body: Operations.PostSearchPublicChats.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1735,10 +1735,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /setPollAnswer`.
     /// - Remark: Generated from `#/paths//setPollAnswer/post`.
-    public func post_sol_setPollAnswer(_ input: Operations.post_sol_setPollAnswer.Input) async throws -> Operations.post_sol_setPollAnswer.Output {
+    public func postSetPollAnswer(_ input: Operations.PostSetPollAnswer.Input) async throws -> Operations.PostSetPollAnswer.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_setPollAnswer.id,
+            forOperation: Operations.PostSetPollAnswer.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/setPollAnswer",
@@ -1778,7 +1778,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -1792,7 +1792,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .message_id(wrapped):
+                            case let .messageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -1806,7 +1806,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .option_ids(wrapped):
+                            case let .optionIds(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -1838,7 +1838,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_setPollAnswer.Output.Ok.Body
+                    let body: Operations.PostSetPollAnswer.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1848,7 +1848,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_setPollAnswer.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSetPollAnswer.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -1860,7 +1860,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_setPollAnswer.Output.Default.Body
+                    let body: Operations.PostSetPollAnswer.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1895,10 +1895,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /joinChat`.
     /// - Remark: Generated from `#/paths//joinChat/post`.
-    public func post_sol_joinChat(_ input: Operations.post_sol_joinChat.Input) async throws -> Operations.post_sol_joinChat.Output {
+    public func postJoinChat(_ input: Operations.PostJoinChat.Input) async throws -> Operations.PostJoinChat.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_joinChat.id,
+            forOperation: Operations.PostJoinChat.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/joinChat",
@@ -1936,7 +1936,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -1950,7 +1950,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .invite_link(wrapped):
+                            case let .inviteLink(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -1982,7 +1982,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_joinChat.Output.Ok.Body
+                    let body: Operations.PostJoinChat.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1992,7 +1992,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_joinChat.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostJoinChat.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -2004,7 +2004,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_joinChat.Output.Default.Body
+                    let body: Operations.PostJoinChat.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -2037,10 +2037,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /addChatMember`.
     /// - Remark: Generated from `#/paths//addChatMember/post`.
-    public func post_sol_addChatMember(_ input: Operations.post_sol_addChatMember.Input) async throws -> Operations.post_sol_addChatMember.Output {
+    public func postAddChatMember(_ input: Operations.PostAddChatMember.Input) async throws -> Operations.PostAddChatMember.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_addChatMember.id,
+            forOperation: Operations.PostAddChatMember.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/addChatMember",
@@ -2078,7 +2078,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -2092,7 +2092,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .user_id(wrapped):
+                            case let .userId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -2124,7 +2124,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_addChatMember.Output.Ok.Body
+                    let body: Operations.PostAddChatMember.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -2134,7 +2134,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_addChatMember.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostAddChatMember.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -2146,7 +2146,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_addChatMember.Output.Default.Body
+                    let body: Operations.PostAddChatMember.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -2179,10 +2179,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /reportChat`.
     /// - Remark: Generated from `#/paths//reportChat/post`.
-    public func post_sol_reportChat(_ input: Operations.post_sol_reportChat.Input) async throws -> Operations.post_sol_reportChat.Output {
+    public func postReportChat(_ input: Operations.PostReportChat.Input) async throws -> Operations.PostReportChat.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_reportChat.id,
+            forOperation: Operations.PostReportChat.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/reportChat",
@@ -2222,7 +2222,7 @@ public struct Client: APIProtocol {
                         ],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -2250,7 +2250,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .message_ids(wrapped):
+                            case let .messageIds(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -2282,7 +2282,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_reportChat.Output.Ok.Body
+                    let body: Operations.PostReportChat.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -2292,7 +2292,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_reportChat.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostReportChat.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -2304,7 +2304,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_reportChat.Output.Default.Body
+                    let body: Operations.PostReportChat.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -2337,10 +2337,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /createChat`.
     /// - Remark: Generated from `#/paths//createChat/post`.
-    public func post_sol_createChat(_ input: Operations.post_sol_createChat.Input) async throws -> Operations.post_sol_createChat.Output {
+    public func postCreateChat(_ input: Operations.PostCreateChat.Input) async throws -> Operations.PostCreateChat.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_createChat.id,
+            forOperation: Operations.PostCreateChat.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/createChat",
@@ -2410,7 +2410,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .user_ids(wrapped):
+                            case let .userIds(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -2456,7 +2456,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_createChat.Output.Ok.Body
+                    let body: Operations.PostCreateChat.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -2466,7 +2466,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_createChat.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostCreateChat.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -2478,7 +2478,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_createChat.Output.Default.Body
+                    let body: Operations.PostCreateChat.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -2511,10 +2511,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /searchMessages`.
     /// - Remark: Generated from `#/paths//searchMessages/post`.
-    public func post_sol_searchMessages(_ input: Operations.post_sol_searchMessages.Input) async throws -> Operations.post_sol_searchMessages.Output {
+    public func postSearchMessages(_ input: Operations.PostSearchMessages.Input) async throws -> Operations.PostSearchMessages.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_searchMessages.id,
+            forOperation: Operations.PostSearchMessages.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/searchMessages",
@@ -2571,7 +2571,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .only_in_channels(wrapped):
+                            case let .onlyInChannels(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -2585,7 +2585,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .offset_date(wrapped):
+                            case let .offsetDate(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -2599,7 +2599,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .offset_chat_id(wrapped):
+                            case let .offsetChatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -2613,7 +2613,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .offset_message_id(wrapped):
+                            case let .offsetMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -2659,7 +2659,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_searchMessages.Output.Ok.Body
+                    let body: Operations.PostSearchMessages.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -2669,7 +2669,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_searchMessages.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSearchMessages.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -2681,7 +2681,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_searchMessages.Output.Default.Body
+                    let body: Operations.PostSearchMessages.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -2714,10 +2714,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /searchChatMessages`.
     /// - Remark: Generated from `#/paths//searchChatMessages/post`.
-    public func post_sol_searchChatMessages(_ input: Operations.post_sol_searchChatMessages.Input) async throws -> Operations.post_sol_searchChatMessages.Output {
+    public func postSearchChatMessages(_ input: Operations.PostSearchChatMessages.Input) async throws -> Operations.PostSearchChatMessages.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_searchChatMessages.id,
+            forOperation: Operations.PostSearchChatMessages.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/searchChatMessages",
@@ -2759,7 +2759,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -2787,7 +2787,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .from_user_id(wrapped):
+                            case let .fromUserId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -2801,7 +2801,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .from_message_id(wrapped):
+                            case let .fromMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -2847,7 +2847,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_searchChatMessages.Output.Ok.Body
+                    let body: Operations.PostSearchChatMessages.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -2857,7 +2857,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_searchChatMessages.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSearchChatMessages.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -2869,7 +2869,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_searchChatMessages.Output.Default.Body
+                    let body: Operations.PostSearchChatMessages.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -2902,10 +2902,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /getCallbackQueryAnswer`.
     /// - Remark: Generated from `#/paths//getCallbackQueryAnswer/post`.
-    public func post_sol_getCallbackQueryAnswer(_ input: Operations.post_sol_getCallbackQueryAnswer.Input) async throws -> Operations.post_sol_getCallbackQueryAnswer.Output {
+    public func postGetCallbackQueryAnswer(_ input: Operations.PostGetCallbackQueryAnswer.Input) async throws -> Operations.PostGetCallbackQueryAnswer.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_getCallbackQueryAnswer.id,
+            forOperation: Operations.PostGetCallbackQueryAnswer.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/getCallbackQueryAnswer",
@@ -2944,7 +2944,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -2958,7 +2958,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .message_id(wrapped):
+                            case let .messageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -2972,7 +2972,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .callback_data(wrapped):
+                            case let .callbackData(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -3004,7 +3004,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getCallbackQueryAnswer.Output.Ok.Body
+                    let body: Operations.PostGetCallbackQueryAnswer.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3014,7 +3014,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_getCallbackQueryAnswer.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostGetCallbackQueryAnswer.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -3026,7 +3026,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getCallbackQueryAnswer.Output.Default.Body
+                    let body: Operations.PostGetCallbackQueryAnswer.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3059,10 +3059,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /deleteChatHistory`.
     /// - Remark: Generated from `#/paths//deleteChatHistory/post`.
-    public func post_sol_deleteChatHistory(_ input: Operations.post_sol_deleteChatHistory.Input) async throws -> Operations.post_sol_deleteChatHistory.Output {
+    public func postDeleteChatHistory(_ input: Operations.PostDeleteChatHistory.Input) async throws -> Operations.PostDeleteChatHistory.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_deleteChatHistory.id,
+            forOperation: Operations.PostDeleteChatHistory.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/deleteChatHistory",
@@ -3102,7 +3102,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -3116,7 +3116,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .for_everyone(wrapped):
+                            case let .forEveryone(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -3130,7 +3130,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .remove_from_chat_list(wrapped):
+                            case let .removeFromChatList(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -3162,7 +3162,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_deleteChatHistory.Output.Ok.Body
+                    let body: Operations.PostDeleteChatHistory.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3172,7 +3172,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_deleteChatHistory.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostDeleteChatHistory.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -3184,7 +3184,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_deleteChatHistory.Output.Default.Body
+                    let body: Operations.PostDeleteChatHistory.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3217,10 +3217,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /getScheduledMessages`.
     /// - Remark: Generated from `#/paths//getScheduledMessages/post`.
-    public func post_sol_getScheduledMessages(_ input: Operations.post_sol_getScheduledMessages.Input) async throws -> Operations.post_sol_getScheduledMessages.Output {
+    public func postGetScheduledMessages(_ input: Operations.PostGetScheduledMessages.Input) async throws -> Operations.PostGetScheduledMessages.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_getScheduledMessages.id,
+            forOperation: Operations.PostGetScheduledMessages.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/getScheduledMessages",
@@ -3257,7 +3257,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -3289,7 +3289,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getScheduledMessages.Output.Ok.Body
+                    let body: Operations.PostGetScheduledMessages.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3299,7 +3299,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_getScheduledMessages.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostGetScheduledMessages.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -3311,7 +3311,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getScheduledMessages.Output.Default.Body
+                    let body: Operations.PostGetScheduledMessages.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3344,10 +3344,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /editMessageScheduling`.
     /// - Remark: Generated from `#/paths//editMessageScheduling/post`.
-    public func post_sol_editMessageScheduling(_ input: Operations.post_sol_editMessageScheduling.Input) async throws -> Operations.post_sol_editMessageScheduling.Output {
+    public func postEditMessageScheduling(_ input: Operations.PostEditMessageScheduling.Input) async throws -> Operations.PostEditMessageScheduling.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_editMessageScheduling.id,
+            forOperation: Operations.PostEditMessageScheduling.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/editMessageScheduling",
@@ -3387,7 +3387,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -3401,7 +3401,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .message_id(wrapped):
+                            case let .messageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -3415,7 +3415,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .send_at(wrapped):
+                            case let .sendAt(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -3447,7 +3447,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_editMessageScheduling.Output.Ok.Body
+                    let body: Operations.PostEditMessageScheduling.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3457,7 +3457,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_editMessageScheduling.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostEditMessageScheduling.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -3469,7 +3469,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_editMessageScheduling.Output.Default.Body
+                    let body: Operations.PostEditMessageScheduling.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3500,10 +3500,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /getProxies`.
     /// - Remark: Generated from `#/paths//getProxies/post`.
-    public func post_sol_getProxies(_ input: Operations.post_sol_getProxies.Input) async throws -> Operations.post_sol_getProxies.Output {
+    public func postGetProxies(_ input: Operations.PostGetProxies.Input) async throws -> Operations.PostGetProxies.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_getProxies.id,
+            forOperation: Operations.PostGetProxies.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/getProxies",
@@ -3524,7 +3524,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getProxies.Output.Ok.Body
+                    let body: Operations.PostGetProxies.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3534,7 +3534,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_getProxies.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostGetProxies.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -3546,7 +3546,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getProxies.Output.Default.Body
+                    let body: Operations.PostGetProxies.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3577,10 +3577,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /addProxy`.
     /// - Remark: Generated from `#/paths//addProxy/post`.
-    public func post_sol_addProxy(_ input: Operations.post_sol_addProxy.Input) async throws -> Operations.post_sol_addProxy.Output {
+    public func postAddProxy(_ input: Operations.PostAddProxy.Input) async throws -> Operations.PostAddProxy.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_addProxy.id,
+            forOperation: Operations.PostAddProxy.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/addProxy",
@@ -3708,7 +3708,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .http_only(wrapped):
+                            case let .httpOnly(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -3740,7 +3740,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_addProxy.Output.Ok.Body
+                    let body: Operations.PostAddProxy.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3750,7 +3750,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_addProxy.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostAddProxy.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -3762,7 +3762,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_addProxy.Output.Default.Body
+                    let body: Operations.PostAddProxy.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3793,10 +3793,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /deleteProxy`.
     /// - Remark: Generated from `#/paths//deleteProxy/post`.
-    public func post_sol_deleteProxy(_ input: Operations.post_sol_deleteProxy.Input) async throws -> Operations.post_sol_deleteProxy.Output {
+    public func postDeleteProxy(_ input: Operations.PostDeleteProxy.Input) async throws -> Operations.PostDeleteProxy.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_deleteProxy.id,
+            forOperation: Operations.PostDeleteProxy.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/deleteProxy",
@@ -3833,7 +3833,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .proxy_id(wrapped):
+                            case let .proxyId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -3865,7 +3865,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_deleteProxy.Output.Ok.Body
+                    let body: Operations.PostDeleteProxy.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3875,7 +3875,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_deleteProxy.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostDeleteProxy.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -3887,7 +3887,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_deleteProxy.Output.Default.Body
+                    let body: Operations.PostDeleteProxy.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3918,10 +3918,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /enableProxy`.
     /// - Remark: Generated from `#/paths//enableProxy/post`.
-    public func post_sol_enableProxy(_ input: Operations.post_sol_enableProxy.Input) async throws -> Operations.post_sol_enableProxy.Output {
+    public func postEnableProxy(_ input: Operations.PostEnableProxy.Input) async throws -> Operations.PostEnableProxy.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_enableProxy.id,
+            forOperation: Operations.PostEnableProxy.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/enableProxy",
@@ -3958,7 +3958,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .proxy_id(wrapped):
+                            case let .proxyId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -3990,7 +3990,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_enableProxy.Output.Ok.Body
+                    let body: Operations.PostEnableProxy.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4000,7 +4000,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_enableProxy.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostEnableProxy.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -4012,7 +4012,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_enableProxy.Output.Default.Body
+                    let body: Operations.PostEnableProxy.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4043,10 +4043,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /disableProxy`.
     /// - Remark: Generated from `#/paths//disableProxy/post`.
-    public func post_sol_disableProxy(_ input: Operations.post_sol_disableProxy.Input) async throws -> Operations.post_sol_disableProxy.Output {
+    public func postDisableProxy(_ input: Operations.PostDisableProxy.Input) async throws -> Operations.PostDisableProxy.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_disableProxy.id,
+            forOperation: Operations.PostDisableProxy.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/disableProxy",
@@ -4083,7 +4083,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .proxy_id(wrapped):
+                            case let .proxyId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -4115,7 +4115,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_disableProxy.Output.Ok.Body
+                    let body: Operations.PostDisableProxy.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4125,7 +4125,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_disableProxy.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostDisableProxy.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -4137,7 +4137,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_disableProxy.Output.Default.Body
+                    let body: Operations.PostDisableProxy.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4168,10 +4168,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /getUpdates`.
     /// - Remark: Generated from `#/paths//getUpdates/post`.
-    public func post_sol_getUpdates(_ input: Operations.post_sol_getUpdates.Input) async throws -> Operations.post_sol_getUpdates.Output {
+    public func postGetUpdates(_ input: Operations.PostGetUpdates.Input) async throws -> Operations.PostGetUpdates.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_getUpdates.id,
+            forOperation: Operations.PostGetUpdates.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/getUpdates",
@@ -4254,7 +4254,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .allowed_updates(wrapped):
+                            case let .allowedUpdates(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -4286,7 +4286,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getUpdates.Output.Ok.Body
+                    let body: Operations.PostGetUpdates.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4296,7 +4296,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_getUpdates.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostGetUpdates.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -4308,7 +4308,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getUpdates.Output.Default.Body
+                    let body: Operations.PostGetUpdates.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4341,10 +4341,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /setWebhook`.
     /// - Remark: Generated from `#/paths//setWebhook/post`.
-    public func post_sol_setWebhook(_ input: Operations.post_sol_setWebhook.Input) async throws -> Operations.post_sol_setWebhook.Output {
+    public func postSetWebhook(_ input: Operations.PostSetWebhook.Input) async throws -> Operations.PostSetWebhook.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_setWebhook.id,
+            forOperation: Operations.PostSetWebhook.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/setWebhook",
@@ -4410,7 +4410,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .ip_address(wrapped):
+                            case let .ipAddress(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -4424,7 +4424,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .max_connections(wrapped):
+                            case let .maxConnections(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -4438,7 +4438,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .allowed_updates(wrapped):
+                            case let .allowedUpdates(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -4452,7 +4452,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .drop_pending_updates(wrapped):
+                            case let .dropPendingUpdates(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -4478,7 +4478,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_setWebhook.Output.Ok.Body
+                    let body: Operations.PostSetWebhook.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4488,7 +4488,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_setWebhook.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSetWebhook.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -4500,7 +4500,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_setWebhook.Output.Default.Body
+                    let body: Operations.PostSetWebhook.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4531,10 +4531,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /deleteWebhook`.
     /// - Remark: Generated from `#/paths//deleteWebhook/post`.
-    public func post_sol_deleteWebhook(_ input: Operations.post_sol_deleteWebhook.Input) async throws -> Operations.post_sol_deleteWebhook.Output {
+    public func postDeleteWebhook(_ input: Operations.PostDeleteWebhook.Input) async throws -> Operations.PostDeleteWebhook.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_deleteWebhook.id,
+            forOperation: Operations.PostDeleteWebhook.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/deleteWebhook",
@@ -4571,7 +4571,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .drop_pending_updates(wrapped):
+                            case let .dropPendingUpdates(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -4603,7 +4603,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_deleteWebhook.Output.Ok.Body
+                    let body: Operations.PostDeleteWebhook.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4613,7 +4613,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_deleteWebhook.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostDeleteWebhook.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -4625,7 +4625,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_deleteWebhook.Output.Default.Body
+                    let body: Operations.PostDeleteWebhook.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4656,10 +4656,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /getWebhookInfo`.
     /// - Remark: Generated from `#/paths//getWebhookInfo/post`.
-    public func post_sol_getWebhookInfo(_ input: Operations.post_sol_getWebhookInfo.Input) async throws -> Operations.post_sol_getWebhookInfo.Output {
+    public func postGetWebhookInfo(_ input: Operations.PostGetWebhookInfo.Input) async throws -> Operations.PostGetWebhookInfo.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_getWebhookInfo.id,
+            forOperation: Operations.PostGetWebhookInfo.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/getWebhookInfo",
@@ -4680,7 +4680,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getWebhookInfo.Output.Ok.Body
+                    let body: Operations.PostGetWebhookInfo.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4690,7 +4690,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_getWebhookInfo.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostGetWebhookInfo.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -4702,7 +4702,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getWebhookInfo.Output.Default.Body
+                    let body: Operations.PostGetWebhookInfo.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4733,10 +4733,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /getMe`.
     /// - Remark: Generated from `#/paths//getMe/post`.
-    public func post_sol_getMe(_ input: Operations.post_sol_getMe.Input) async throws -> Operations.post_sol_getMe.Output {
+    public func postGetMe(_ input: Operations.PostGetMe.Input) async throws -> Operations.PostGetMe.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_getMe.id,
+            forOperation: Operations.PostGetMe.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/getMe",
@@ -4757,7 +4757,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getMe.Output.Ok.Body
+                    let body: Operations.PostGetMe.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4767,7 +4767,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_getMe.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostGetMe.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -4779,7 +4779,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getMe.Output.Default.Body
+                    let body: Operations.PostGetMe.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4810,10 +4810,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /logOut`.
     /// - Remark: Generated from `#/paths//logOut/post`.
-    public func post_sol_logOut(_ input: Operations.post_sol_logOut.Input) async throws -> Operations.post_sol_logOut.Output {
+    public func postLogOut(_ input: Operations.PostLogOut.Input) async throws -> Operations.PostLogOut.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_logOut.id,
+            forOperation: Operations.PostLogOut.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/logOut",
@@ -4834,7 +4834,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_logOut.Output.Ok.Body
+                    let body: Operations.PostLogOut.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4844,7 +4844,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_logOut.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostLogOut.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -4856,7 +4856,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_logOut.Output.Default.Body
+                    let body: Operations.PostLogOut.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4887,10 +4887,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /close`.
     /// - Remark: Generated from `#/paths//close/post`.
-    public func post_sol_close(_ input: Operations.post_sol_close.Input) async throws -> Operations.post_sol_close.Output {
+    public func postClose(_ input: Operations.PostClose.Input) async throws -> Operations.PostClose.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_close.id,
+            forOperation: Operations.PostClose.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/close",
@@ -4911,7 +4911,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_close.Output.Ok.Body
+                    let body: Operations.PostClose.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4921,7 +4921,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_close.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostClose.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -4933,7 +4933,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_close.Output.Default.Body
+                    let body: Operations.PostClose.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4964,10 +4964,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /sendMessage`.
     /// - Remark: Generated from `#/paths//sendMessage/post`.
-    public func post_sol_sendMessage(_ input: Operations.post_sol_sendMessage.Input) async throws -> Operations.post_sol_sendMessage.Output {
+    public func postSendMessage(_ input: Operations.PostSendMessage.Input) async throws -> Operations.PostSendMessage.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_sendMessage.id,
+            forOperation: Operations.PostSendMessage.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/sendMessage",
@@ -5015,7 +5015,7 @@ public struct Client: APIProtocol {
                         ],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -5043,7 +5043,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .parse_mode(wrapped):
+                            case let .parseMode(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -5071,7 +5071,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .disable_web_page_preview(wrapped):
+                            case let .disableWebPagePreview(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -5085,7 +5085,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .disable_notification(wrapped):
+                            case let .disableNotification(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -5099,7 +5099,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_to_message_id(wrapped):
+                            case let .replyToMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -5113,7 +5113,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .allow_sending_without_reply(wrapped):
+                            case let .allowSendingWithoutReply(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -5127,7 +5127,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_markup(wrapped):
+                            case let .replyMarkup(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -5141,7 +5141,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .send_at(wrapped):
+                            case let .sendAt(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -5173,7 +5173,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendMessage.Output.Ok.Body
+                    let body: Operations.PostSendMessage.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -5183,7 +5183,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_sendMessage.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSendMessage.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -5195,7 +5195,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendMessage.Output.Default.Body
+                    let body: Operations.PostSendMessage.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -5226,10 +5226,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /forwardMessage`.
     /// - Remark: Generated from `#/paths//forwardMessage/post`.
-    public func post_sol_forwardMessage(_ input: Operations.post_sol_forwardMessage.Input) async throws -> Operations.post_sol_forwardMessage.Output {
+    public func postForwardMessage(_ input: Operations.PostForwardMessage.Input) async throws -> Operations.PostForwardMessage.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_forwardMessage.id,
+            forOperation: Operations.PostForwardMessage.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/forwardMessage",
@@ -5271,7 +5271,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -5285,7 +5285,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .from_chat_id(wrapped):
+                            case let .fromChatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -5299,7 +5299,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .disable_notification(wrapped):
+                            case let .disableNotification(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -5313,7 +5313,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .message_id(wrapped):
+                            case let .messageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -5327,7 +5327,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .send_at(wrapped):
+                            case let .sendAt(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -5359,7 +5359,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_forwardMessage.Output.Ok.Body
+                    let body: Operations.PostForwardMessage.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -5369,7 +5369,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_forwardMessage.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostForwardMessage.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -5381,7 +5381,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_forwardMessage.Output.Default.Body
+                    let body: Operations.PostForwardMessage.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -5412,10 +5412,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /copyMessage`.
     /// - Remark: Generated from `#/paths//copyMessage/post`.
-    public func post_sol_copyMessage(_ input: Operations.post_sol_copyMessage.Input) async throws -> Operations.post_sol_copyMessage.Output {
+    public func postCopyMessage(_ input: Operations.PostCopyMessage.Input) async throws -> Operations.PostCopyMessage.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_copyMessage.id,
+            forOperation: Operations.PostCopyMessage.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/copyMessage",
@@ -5464,7 +5464,7 @@ public struct Client: APIProtocol {
                         ],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -5478,7 +5478,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .from_chat_id(wrapped):
+                            case let .fromChatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -5492,7 +5492,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .message_id(wrapped):
+                            case let .messageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -5520,7 +5520,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .parse_mode(wrapped):
+                            case let .parseMode(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -5534,7 +5534,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .caption_entities(wrapped):
+                            case let .captionEntities(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -5548,7 +5548,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .disable_notification(wrapped):
+                            case let .disableNotification(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -5562,7 +5562,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_to_message_id(wrapped):
+                            case let .replyToMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -5576,7 +5576,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .allow_sending_without_reply(wrapped):
+                            case let .allowSendingWithoutReply(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -5590,7 +5590,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_markup(wrapped):
+                            case let .replyMarkup(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -5604,7 +5604,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .send_at(wrapped):
+                            case let .sendAt(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -5636,7 +5636,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_copyMessage.Output.Ok.Body
+                    let body: Operations.PostCopyMessage.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -5646,7 +5646,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_copyMessage.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostCopyMessage.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -5658,7 +5658,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_copyMessage.Output.Default.Body
+                    let body: Operations.PostCopyMessage.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -5689,10 +5689,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /sendPhoto`.
     /// - Remark: Generated from `#/paths//sendPhoto/post`.
-    public func post_sol_sendPhoto(_ input: Operations.post_sol_sendPhoto.Input) async throws -> Operations.post_sol_sendPhoto.Output {
+    public func postSendPhoto(_ input: Operations.PostSendPhoto.Input) async throws -> Operations.PostSendPhoto.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_sendPhoto.id,
+            forOperation: Operations.PostSendPhoto.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/sendPhoto",
@@ -5734,7 +5734,7 @@ public struct Client: APIProtocol {
                         ],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -5776,7 +5776,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .parse_mode(wrapped):
+                            case let .parseMode(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -5790,7 +5790,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .caption_entities(wrapped):
+                            case let .captionEntities(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -5804,7 +5804,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .disable_notification(wrapped):
+                            case let .disableNotification(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -5818,7 +5818,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_to_message_id(wrapped):
+                            case let .replyToMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -5832,7 +5832,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .allow_sending_without_reply(wrapped):
+                            case let .allowSendingWithoutReply(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -5846,7 +5846,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_markup(wrapped):
+                            case let .replyMarkup(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -5860,7 +5860,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .send_at(wrapped):
+                            case let .sendAt(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -5886,7 +5886,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendPhoto.Output.Ok.Body
+                    let body: Operations.PostSendPhoto.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -5896,7 +5896,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_sendPhoto.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSendPhoto.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -5908,7 +5908,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendPhoto.Output.Default.Body
+                    let body: Operations.PostSendPhoto.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -5941,10 +5941,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /sendAudio`.
     /// - Remark: Generated from `#/paths//sendAudio/post`.
-    public func post_sol_sendAudio(_ input: Operations.post_sol_sendAudio.Input) async throws -> Operations.post_sol_sendAudio.Output {
+    public func postSendAudio(_ input: Operations.PostSendAudio.Input) async throws -> Operations.PostSendAudio.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_sendAudio.id,
+            forOperation: Operations.PostSendAudio.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/sendAudio",
@@ -5990,7 +5990,7 @@ public struct Client: APIProtocol {
                         ],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -6032,7 +6032,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .parse_mode(wrapped):
+                            case let .parseMode(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -6046,7 +6046,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .caption_entities(wrapped):
+                            case let .captionEntities(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -6116,7 +6116,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .disable_notification(wrapped):
+                            case let .disableNotification(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -6130,7 +6130,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_to_message_id(wrapped):
+                            case let .replyToMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -6144,7 +6144,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .allow_sending_without_reply(wrapped):
+                            case let .allowSendingWithoutReply(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -6158,7 +6158,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_markup(wrapped):
+                            case let .replyMarkup(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -6172,7 +6172,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .send_at(wrapped):
+                            case let .sendAt(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -6198,7 +6198,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendAudio.Output.Ok.Body
+                    let body: Operations.PostSendAudio.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -6208,7 +6208,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_sendAudio.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSendAudio.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -6220,7 +6220,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendAudio.Output.Default.Body
+                    let body: Operations.PostSendAudio.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -6251,10 +6251,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /sendDocument`.
     /// - Remark: Generated from `#/paths//sendDocument/post`.
-    public func post_sol_sendDocument(_ input: Operations.post_sol_sendDocument.Input) async throws -> Operations.post_sol_sendDocument.Output {
+    public func postSendDocument(_ input: Operations.PostSendDocument.Input) async throws -> Operations.PostSendDocument.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_sendDocument.id,
+            forOperation: Operations.PostSendDocument.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/sendDocument",
@@ -6298,7 +6298,7 @@ public struct Client: APIProtocol {
                         ],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -6354,7 +6354,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .parse_mode(wrapped):
+                            case let .parseMode(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -6368,7 +6368,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .caption_entities(wrapped):
+                            case let .captionEntities(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -6382,7 +6382,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .disable_content_type_detection(wrapped):
+                            case let .disableContentTypeDetection(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -6396,7 +6396,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .disable_notification(wrapped):
+                            case let .disableNotification(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -6410,7 +6410,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_to_message_id(wrapped):
+                            case let .replyToMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -6424,7 +6424,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .allow_sending_without_reply(wrapped):
+                            case let .allowSendingWithoutReply(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -6438,7 +6438,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_markup(wrapped):
+                            case let .replyMarkup(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -6452,7 +6452,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .send_at(wrapped):
+                            case let .sendAt(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -6478,7 +6478,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendDocument.Output.Ok.Body
+                    let body: Operations.PostSendDocument.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -6488,7 +6488,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_sendDocument.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSendDocument.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -6500,7 +6500,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendDocument.Output.Default.Body
+                    let body: Operations.PostSendDocument.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -6531,10 +6531,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /sendVideo`.
     /// - Remark: Generated from `#/paths//sendVideo/post`.
-    public func post_sol_sendVideo(_ input: Operations.post_sol_sendVideo.Input) async throws -> Operations.post_sol_sendVideo.Output {
+    public func postSendVideo(_ input: Operations.PostSendVideo.Input) async throws -> Operations.PostSendVideo.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_sendVideo.id,
+            forOperation: Operations.PostSendVideo.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/sendVideo",
@@ -6581,7 +6581,7 @@ public struct Client: APIProtocol {
                         ],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -6679,7 +6679,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .parse_mode(wrapped):
+                            case let .parseMode(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -6693,7 +6693,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .caption_entities(wrapped):
+                            case let .captionEntities(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -6707,7 +6707,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .supports_streaming(wrapped):
+                            case let .supportsStreaming(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -6721,7 +6721,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .disable_notification(wrapped):
+                            case let .disableNotification(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -6735,7 +6735,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_to_message_id(wrapped):
+                            case let .replyToMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -6749,7 +6749,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .allow_sending_without_reply(wrapped):
+                            case let .allowSendingWithoutReply(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -6763,7 +6763,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_markup(wrapped):
+                            case let .replyMarkup(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -6777,7 +6777,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .send_at(wrapped):
+                            case let .sendAt(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -6803,7 +6803,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendVideo.Output.Ok.Body
+                    let body: Operations.PostSendVideo.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -6813,7 +6813,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_sendVideo.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSendVideo.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -6825,7 +6825,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendVideo.Output.Default.Body
+                    let body: Operations.PostSendVideo.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -6856,10 +6856,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /sendAnimation`.
     /// - Remark: Generated from `#/paths//sendAnimation/post`.
-    public func post_sol_sendAnimation(_ input: Operations.post_sol_sendAnimation.Input) async throws -> Operations.post_sol_sendAnimation.Output {
+    public func postSendAnimation(_ input: Operations.PostSendAnimation.Input) async throws -> Operations.PostSendAnimation.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_sendAnimation.id,
+            forOperation: Operations.PostSendAnimation.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/sendAnimation",
@@ -6905,7 +6905,7 @@ public struct Client: APIProtocol {
                         ],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -7003,7 +7003,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .parse_mode(wrapped):
+                            case let .parseMode(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -7017,7 +7017,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .caption_entities(wrapped):
+                            case let .captionEntities(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -7031,7 +7031,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .disable_notification(wrapped):
+                            case let .disableNotification(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -7045,7 +7045,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_to_message_id(wrapped):
+                            case let .replyToMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -7059,7 +7059,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .allow_sending_without_reply(wrapped):
+                            case let .allowSendingWithoutReply(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -7073,7 +7073,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_markup(wrapped):
+                            case let .replyMarkup(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -7087,7 +7087,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .send_at(wrapped):
+                            case let .sendAt(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -7113,7 +7113,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendAnimation.Output.Ok.Body
+                    let body: Operations.PostSendAnimation.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -7123,7 +7123,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_sendAnimation.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSendAnimation.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -7135,7 +7135,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendAnimation.Output.Default.Body
+                    let body: Operations.PostSendAnimation.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -7166,10 +7166,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /sendVoice`.
     /// - Remark: Generated from `#/paths//sendVoice/post`.
-    public func post_sol_sendVoice(_ input: Operations.post_sol_sendVoice.Input) async throws -> Operations.post_sol_sendVoice.Output {
+    public func postSendVoice(_ input: Operations.PostSendVoice.Input) async throws -> Operations.PostSendVoice.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_sendVoice.id,
+            forOperation: Operations.PostSendVoice.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/sendVoice",
@@ -7212,7 +7212,7 @@ public struct Client: APIProtocol {
                         ],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -7254,7 +7254,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .parse_mode(wrapped):
+                            case let .parseMode(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -7268,7 +7268,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .caption_entities(wrapped):
+                            case let .captionEntities(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -7296,7 +7296,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .disable_notification(wrapped):
+                            case let .disableNotification(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -7310,7 +7310,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_to_message_id(wrapped):
+                            case let .replyToMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -7324,7 +7324,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .allow_sending_without_reply(wrapped):
+                            case let .allowSendingWithoutReply(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -7338,7 +7338,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_markup(wrapped):
+                            case let .replyMarkup(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -7352,7 +7352,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .send_at(wrapped):
+                            case let .sendAt(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -7378,7 +7378,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendVoice.Output.Ok.Body
+                    let body: Operations.PostSendVoice.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -7388,7 +7388,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_sendVoice.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSendVoice.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -7400,7 +7400,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendVoice.Output.Default.Body
+                    let body: Operations.PostSendVoice.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -7431,10 +7431,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /sendVideoNote`.
     /// - Remark: Generated from `#/paths//sendVideoNote/post`.
-    public func post_sol_sendVideoNote(_ input: Operations.post_sol_sendVideoNote.Input) async throws -> Operations.post_sol_sendVideoNote.Output {
+    public func postSendVideoNote(_ input: Operations.PostSendVideoNote.Input) async throws -> Operations.PostSendVideoNote.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_sendVideoNote.id,
+            forOperation: Operations.PostSendVideoNote.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/sendVideoNote",
@@ -7475,7 +7475,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -7489,7 +7489,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .video_note(wrapped):
+                            case let .videoNote(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -7545,7 +7545,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .disable_notification(wrapped):
+                            case let .disableNotification(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -7559,7 +7559,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_to_message_id(wrapped):
+                            case let .replyToMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -7573,7 +7573,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .allow_sending_without_reply(wrapped):
+                            case let .allowSendingWithoutReply(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -7587,7 +7587,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_markup(wrapped):
+                            case let .replyMarkup(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -7601,7 +7601,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .send_at(wrapped):
+                            case let .sendAt(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -7627,7 +7627,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendVideoNote.Output.Ok.Body
+                    let body: Operations.PostSendVideoNote.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -7637,7 +7637,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_sendVideoNote.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSendVideoNote.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -7649,7 +7649,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendVideoNote.Output.Default.Body
+                    let body: Operations.PostSendVideoNote.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -7680,10 +7680,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /sendMediaGroup`.
     /// - Remark: Generated from `#/paths//sendMediaGroup/post`.
-    public func post_sol_sendMediaGroup(_ input: Operations.post_sol_sendMediaGroup.Input) async throws -> Operations.post_sol_sendMediaGroup.Output {
+    public func postSendMediaGroup(_ input: Operations.PostSendMediaGroup.Input) async throws -> Operations.PostSendMediaGroup.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_sendMediaGroup.id,
+            forOperation: Operations.PostSendMediaGroup.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/sendMediaGroup",
@@ -7721,7 +7721,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -7749,7 +7749,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .disable_notification(wrapped):
+                            case let .disableNotification(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -7763,7 +7763,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_to_message_id(wrapped):
+                            case let .replyToMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -7777,7 +7777,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .allow_sending_without_reply(wrapped):
+                            case let .allowSendingWithoutReply(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -7791,7 +7791,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .send_at(wrapped):
+                            case let .sendAt(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -7817,7 +7817,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendMediaGroup.Output.Ok.Body
+                    let body: Operations.PostSendMediaGroup.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -7827,7 +7827,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_sendMediaGroup.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSendMediaGroup.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -7839,7 +7839,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendMediaGroup.Output.Default.Body
+                    let body: Operations.PostSendMediaGroup.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -7870,10 +7870,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /sendLocation`.
     /// - Remark: Generated from `#/paths//sendLocation/post`.
-    public func post_sol_sendLocation(_ input: Operations.post_sol_sendLocation.Input) async throws -> Operations.post_sol_sendLocation.Output {
+    public func postSendLocation(_ input: Operations.PostSendLocation.Input) async throws -> Operations.PostSendLocation.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_sendLocation.id,
+            forOperation: Operations.PostSendLocation.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/sendLocation",
@@ -7922,7 +7922,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -7964,7 +7964,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .horizontal_accuracy(wrapped):
+                            case let .horizontalAccuracy(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -7978,7 +7978,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .live_period(wrapped):
+                            case let .livePeriod(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -8006,7 +8006,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .proximity_alert_radius(wrapped):
+                            case let .proximityAlertRadius(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -8020,7 +8020,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .disable_notification(wrapped):
+                            case let .disableNotification(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -8034,7 +8034,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_to_message_id(wrapped):
+                            case let .replyToMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -8048,7 +8048,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .allow_sending_without_reply(wrapped):
+                            case let .allowSendingWithoutReply(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -8062,7 +8062,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_markup(wrapped):
+                            case let .replyMarkup(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -8076,7 +8076,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .send_at(wrapped):
+                            case let .sendAt(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -8108,7 +8108,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendLocation.Output.Ok.Body
+                    let body: Operations.PostSendLocation.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -8118,7 +8118,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_sendLocation.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSendLocation.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -8130,7 +8130,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendLocation.Output.Default.Body
+                    let body: Operations.PostSendLocation.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -8161,10 +8161,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /editMessageLiveLocation`.
     /// - Remark: Generated from `#/paths//editMessageLiveLocation/post`.
-    public func post_sol_editMessageLiveLocation(_ input: Operations.post_sol_editMessageLiveLocation.Input) async throws -> Operations.post_sol_editMessageLiveLocation.Output {
+    public func postEditMessageLiveLocation(_ input: Operations.PostEditMessageLiveLocation.Input) async throws -> Operations.PostEditMessageLiveLocation.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_editMessageLiveLocation.id,
+            forOperation: Operations.PostEditMessageLiveLocation.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/editMessageLiveLocation",
@@ -8210,7 +8210,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -8224,7 +8224,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .message_id(wrapped):
+                            case let .messageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -8238,7 +8238,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .inline_message_id(wrapped):
+                            case let .inlineMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -8280,7 +8280,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .horizontal_accuracy(wrapped):
+                            case let .horizontalAccuracy(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -8308,7 +8308,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .proximity_alert_radius(wrapped):
+                            case let .proximityAlertRadius(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -8322,7 +8322,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_markup(wrapped):
+                            case let .replyMarkup(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -8354,7 +8354,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_editMessageLiveLocation.Output.Ok.Body
+                    let body: Operations.PostEditMessageLiveLocation.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -8364,7 +8364,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_editMessageLiveLocation.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostEditMessageLiveLocation.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -8376,7 +8376,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_editMessageLiveLocation.Output.Default.Body
+                    let body: Operations.PostEditMessageLiveLocation.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -8407,10 +8407,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /stopMessageLiveLocation`.
     /// - Remark: Generated from `#/paths//stopMessageLiveLocation/post`.
-    public func post_sol_stopMessageLiveLocation(_ input: Operations.post_sol_stopMessageLiveLocation.Input) async throws -> Operations.post_sol_stopMessageLiveLocation.Output {
+    public func postStopMessageLiveLocation(_ input: Operations.PostStopMessageLiveLocation.Input) async throws -> Operations.PostStopMessageLiveLocation.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_stopMessageLiveLocation.id,
+            forOperation: Operations.PostStopMessageLiveLocation.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/stopMessageLiveLocation",
@@ -8450,7 +8450,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -8464,7 +8464,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .message_id(wrapped):
+                            case let .messageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -8478,7 +8478,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .inline_message_id(wrapped):
+                            case let .inlineMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -8492,7 +8492,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_markup(wrapped):
+                            case let .replyMarkup(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -8524,7 +8524,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_stopMessageLiveLocation.Output.Ok.Body
+                    let body: Operations.PostStopMessageLiveLocation.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -8534,7 +8534,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_stopMessageLiveLocation.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostStopMessageLiveLocation.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -8546,7 +8546,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_stopMessageLiveLocation.Output.Default.Body
+                    let body: Operations.PostStopMessageLiveLocation.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -8577,10 +8577,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /sendVenue`.
     /// - Remark: Generated from `#/paths//sendVenue/post`.
-    public func post_sol_sendVenue(_ input: Operations.post_sol_sendVenue.Input) async throws -> Operations.post_sol_sendVenue.Output {
+    public func postSendVenue(_ input: Operations.PostSendVenue.Input) async throws -> Operations.PostSendVenue.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_sendVenue.id,
+            forOperation: Operations.PostSendVenue.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/sendVenue",
@@ -8631,7 +8631,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -8701,7 +8701,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .foursquare_id(wrapped):
+                            case let .foursquareId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -8715,7 +8715,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .foursquare_type(wrapped):
+                            case let .foursquareType(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -8729,7 +8729,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .google_place_id(wrapped):
+                            case let .googlePlaceId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -8743,7 +8743,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .google_place_type(wrapped):
+                            case let .googlePlaceType(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -8757,7 +8757,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .disable_notification(wrapped):
+                            case let .disableNotification(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -8771,7 +8771,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_to_message_id(wrapped):
+                            case let .replyToMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -8785,7 +8785,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .allow_sending_without_reply(wrapped):
+                            case let .allowSendingWithoutReply(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -8799,7 +8799,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_markup(wrapped):
+                            case let .replyMarkup(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -8813,7 +8813,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .send_at(wrapped):
+                            case let .sendAt(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -8845,7 +8845,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendVenue.Output.Ok.Body
+                    let body: Operations.PostSendVenue.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -8855,7 +8855,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_sendVenue.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSendVenue.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -8867,7 +8867,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendVenue.Output.Default.Body
+                    let body: Operations.PostSendVenue.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -8898,10 +8898,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /sendContact`.
     /// - Remark: Generated from `#/paths//sendContact/post`.
-    public func post_sol_sendContact(_ input: Operations.post_sol_sendContact.Input) async throws -> Operations.post_sol_sendContact.Output {
+    public func postSendContact(_ input: Operations.PostSendContact.Input) async throws -> Operations.PostSendContact.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_sendContact.id,
+            forOperation: Operations.PostSendContact.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/sendContact",
@@ -8948,7 +8948,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -8962,7 +8962,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .phone_number(wrapped):
+                            case let .phoneNumber(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -8976,7 +8976,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .first_name(wrapped):
+                            case let .firstName(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -8990,7 +8990,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .last_name(wrapped):
+                            case let .lastName(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -9018,7 +9018,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .disable_notification(wrapped):
+                            case let .disableNotification(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -9032,7 +9032,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_to_message_id(wrapped):
+                            case let .replyToMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -9046,7 +9046,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .allow_sending_without_reply(wrapped):
+                            case let .allowSendingWithoutReply(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -9060,7 +9060,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_markup(wrapped):
+                            case let .replyMarkup(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -9074,7 +9074,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .send_at(wrapped):
+                            case let .sendAt(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -9106,7 +9106,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendContact.Output.Ok.Body
+                    let body: Operations.PostSendContact.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -9116,7 +9116,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_sendContact.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSendContact.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -9128,7 +9128,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendContact.Output.Default.Body
+                    let body: Operations.PostSendContact.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -9159,10 +9159,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /sendPoll`.
     /// - Remark: Generated from `#/paths//sendPoll/post`.
-    public func post_sol_sendPoll(_ input: Operations.post_sol_sendPoll.Input) async throws -> Operations.post_sol_sendPoll.Output {
+    public func postSendPoll(_ input: Operations.PostSendPoll.Input) async throws -> Operations.PostSendPoll.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_sendPoll.id,
+            forOperation: Operations.PostSendPoll.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/sendPoll",
@@ -9218,7 +9218,7 @@ public struct Client: APIProtocol {
                         ],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -9260,7 +9260,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .is_anonymous(wrapped):
+                            case let .isAnonymous(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -9288,7 +9288,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .allows_multiple_answers(wrapped):
+                            case let .allowsMultipleAnswers(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -9302,7 +9302,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .correct_option_id(wrapped):
+                            case let .correctOptionId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -9330,7 +9330,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .explanation_parse_mode(wrapped):
+                            case let .explanationParseMode(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -9344,7 +9344,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .explanation_entities(wrapped):
+                            case let .explanationEntities(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -9358,7 +9358,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .open_period(wrapped):
+                            case let .openPeriod(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -9372,7 +9372,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .close_date(wrapped):
+                            case let .closeDate(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -9386,7 +9386,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .is_closed(wrapped):
+                            case let .isClosed(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -9400,7 +9400,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .disable_notification(wrapped):
+                            case let .disableNotification(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -9414,7 +9414,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_to_message_id(wrapped):
+                            case let .replyToMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -9428,7 +9428,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .allow_sending_without_reply(wrapped):
+                            case let .allowSendingWithoutReply(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -9442,7 +9442,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_markup(wrapped):
+                            case let .replyMarkup(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -9474,7 +9474,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendPoll.Output.Ok.Body
+                    let body: Operations.PostSendPoll.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -9484,7 +9484,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_sendPoll.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSendPoll.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -9496,7 +9496,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendPoll.Output.Default.Body
+                    let body: Operations.PostSendPoll.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -9527,10 +9527,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /sendDice`.
     /// - Remark: Generated from `#/paths//sendDice/post`.
-    public func post_sol_sendDice(_ input: Operations.post_sol_sendDice.Input) async throws -> Operations.post_sol_sendDice.Output {
+    public func postSendDice(_ input: Operations.PostSendDice.Input) async throws -> Operations.PostSendDice.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_sendDice.id,
+            forOperation: Operations.PostSendDice.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/sendDice",
@@ -9574,7 +9574,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -9602,7 +9602,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .disable_notification(wrapped):
+                            case let .disableNotification(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -9616,7 +9616,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_to_message_id(wrapped):
+                            case let .replyToMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -9630,7 +9630,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .allow_sending_without_reply(wrapped):
+                            case let .allowSendingWithoutReply(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -9644,7 +9644,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_markup(wrapped):
+                            case let .replyMarkup(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -9658,7 +9658,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .send_at(wrapped):
+                            case let .sendAt(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -9690,7 +9690,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendDice.Output.Ok.Body
+                    let body: Operations.PostSendDice.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -9700,7 +9700,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_sendDice.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSendDice.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -9712,7 +9712,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendDice.Output.Default.Body
+                    let body: Operations.PostSendDice.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -9747,10 +9747,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /sendChatAction`.
     /// - Remark: Generated from `#/paths//sendChatAction/post`.
-    public func post_sol_sendChatAction(_ input: Operations.post_sol_sendChatAction.Input) async throws -> Operations.post_sol_sendChatAction.Output {
+    public func postSendChatAction(_ input: Operations.PostSendChatAction.Input) async throws -> Operations.PostSendChatAction.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_sendChatAction.id,
+            forOperation: Operations.PostSendChatAction.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/sendChatAction",
@@ -9788,7 +9788,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -9834,7 +9834,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendChatAction.Output.Ok.Body
+                    let body: Operations.PostSendChatAction.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -9844,7 +9844,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_sendChatAction.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSendChatAction.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -9856,7 +9856,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendChatAction.Output.Default.Body
+                    let body: Operations.PostSendChatAction.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -9887,10 +9887,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /getUserProfilePhotos`.
     /// - Remark: Generated from `#/paths//getUserProfilePhotos/post`.
-    public func post_sol_getUserProfilePhotos(_ input: Operations.post_sol_getUserProfilePhotos.Input) async throws -> Operations.post_sol_getUserProfilePhotos.Output {
+    public func postGetUserProfilePhotos(_ input: Operations.PostGetUserProfilePhotos.Input) async throws -> Operations.PostGetUserProfilePhotos.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_getUserProfilePhotos.id,
+            forOperation: Operations.PostGetUserProfilePhotos.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/getUserProfilePhotos",
@@ -9930,7 +9930,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .user_id(wrapped):
+                            case let .userId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -9990,7 +9990,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getUserProfilePhotos.Output.Ok.Body
+                    let body: Operations.PostGetUserProfilePhotos.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -10000,7 +10000,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_getUserProfilePhotos.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostGetUserProfilePhotos.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -10012,7 +10012,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getUserProfilePhotos.Output.Default.Body
+                    let body: Operations.PostGetUserProfilePhotos.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -10043,10 +10043,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /getFile`.
     /// - Remark: Generated from `#/paths//getFile/post`.
-    public func post_sol_getFile(_ input: Operations.post_sol_getFile.Input) async throws -> Operations.post_sol_getFile.Output {
+    public func postGetFile(_ input: Operations.PostGetFile.Input) async throws -> Operations.PostGetFile.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_getFile.id,
+            forOperation: Operations.PostGetFile.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/getFile",
@@ -10083,7 +10083,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .file_id(wrapped):
+                            case let .fileId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -10115,7 +10115,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getFile.Output.Ok.Body
+                    let body: Operations.PostGetFile.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -10125,7 +10125,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_getFile.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostGetFile.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -10137,7 +10137,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getFile.Output.Default.Body
+                    let body: Operations.PostGetFile.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -10168,10 +10168,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /kickChatMember`.
     /// - Remark: Generated from `#/paths//kickChatMember/post`.
-    public func post_sol_kickChatMember(_ input: Operations.post_sol_kickChatMember.Input) async throws -> Operations.post_sol_kickChatMember.Output {
+    public func postKickChatMember(_ input: Operations.PostKickChatMember.Input) async throws -> Operations.PostKickChatMember.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_kickChatMember.id,
+            forOperation: Operations.PostKickChatMember.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/kickChatMember",
@@ -10211,7 +10211,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -10225,7 +10225,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .user_id(wrapped):
+                            case let .userId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -10239,7 +10239,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .until_date(wrapped):
+                            case let .untilDate(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -10271,7 +10271,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_kickChatMember.Output.Ok.Body
+                    let body: Operations.PostKickChatMember.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -10281,7 +10281,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_kickChatMember.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostKickChatMember.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -10293,7 +10293,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_kickChatMember.Output.Default.Body
+                    let body: Operations.PostKickChatMember.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -10324,10 +10324,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /unbanChatMember`.
     /// - Remark: Generated from `#/paths//unbanChatMember/post`.
-    public func post_sol_unbanChatMember(_ input: Operations.post_sol_unbanChatMember.Input) async throws -> Operations.post_sol_unbanChatMember.Output {
+    public func postUnbanChatMember(_ input: Operations.PostUnbanChatMember.Input) async throws -> Operations.PostUnbanChatMember.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_unbanChatMember.id,
+            forOperation: Operations.PostUnbanChatMember.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/unbanChatMember",
@@ -10367,7 +10367,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -10381,7 +10381,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .user_id(wrapped):
+                            case let .userId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -10395,7 +10395,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .only_if_banned(wrapped):
+                            case let .onlyIfBanned(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -10427,7 +10427,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_unbanChatMember.Output.Ok.Body
+                    let body: Operations.PostUnbanChatMember.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -10437,7 +10437,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_unbanChatMember.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostUnbanChatMember.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -10449,7 +10449,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_unbanChatMember.Output.Default.Body
+                    let body: Operations.PostUnbanChatMember.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -10480,10 +10480,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /restrictChatMember`.
     /// - Remark: Generated from `#/paths//restrictChatMember/post`.
-    public func post_sol_restrictChatMember(_ input: Operations.post_sol_restrictChatMember.Input) async throws -> Operations.post_sol_restrictChatMember.Output {
+    public func postRestrictChatMember(_ input: Operations.PostRestrictChatMember.Input) async throws -> Operations.PostRestrictChatMember.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_restrictChatMember.id,
+            forOperation: Operations.PostRestrictChatMember.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/restrictChatMember",
@@ -10524,7 +10524,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -10538,7 +10538,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .user_id(wrapped):
+                            case let .userId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -10566,7 +10566,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .until_date(wrapped):
+                            case let .untilDate(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -10598,7 +10598,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_restrictChatMember.Output.Ok.Body
+                    let body: Operations.PostRestrictChatMember.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -10608,7 +10608,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_restrictChatMember.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostRestrictChatMember.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -10620,7 +10620,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_restrictChatMember.Output.Default.Body
+                    let body: Operations.PostRestrictChatMember.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -10651,10 +10651,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /promoteChatMember`.
     /// - Remark: Generated from `#/paths//promoteChatMember/post`.
-    public func post_sol_promoteChatMember(_ input: Operations.post_sol_promoteChatMember.Input) async throws -> Operations.post_sol_promoteChatMember.Output {
+    public func postPromoteChatMember(_ input: Operations.PostPromoteChatMember.Input) async throws -> Operations.PostPromoteChatMember.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_promoteChatMember.id,
+            forOperation: Operations.PostPromoteChatMember.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/promoteChatMember",
@@ -10702,7 +10702,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -10716,7 +10716,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .user_id(wrapped):
+                            case let .userId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -10730,7 +10730,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .is_anonymous(wrapped):
+                            case let .isAnonymous(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -10744,7 +10744,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .can_change_info(wrapped):
+                            case let .canChangeInfo(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -10758,7 +10758,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .can_post_messages(wrapped):
+                            case let .canPostMessages(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -10772,7 +10772,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .can_edit_messages(wrapped):
+                            case let .canEditMessages(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -10786,7 +10786,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .can_delete_messages(wrapped):
+                            case let .canDeleteMessages(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -10800,7 +10800,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .can_invite_users(wrapped):
+                            case let .canInviteUsers(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -10814,7 +10814,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .can_restrict_members(wrapped):
+                            case let .canRestrictMembers(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -10828,7 +10828,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .can_pin_messages(wrapped):
+                            case let .canPinMessages(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -10842,7 +10842,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .can_promote_members(wrapped):
+                            case let .canPromoteMembers(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -10874,7 +10874,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_promoteChatMember.Output.Ok.Body
+                    let body: Operations.PostPromoteChatMember.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -10884,7 +10884,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_promoteChatMember.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostPromoteChatMember.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -10896,7 +10896,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_promoteChatMember.Output.Default.Body
+                    let body: Operations.PostPromoteChatMember.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -10927,10 +10927,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /setChatAdministratorCustomTitle`.
     /// - Remark: Generated from `#/paths//setChatAdministratorCustomTitle/post`.
-    public func post_sol_setChatAdministratorCustomTitle(_ input: Operations.post_sol_setChatAdministratorCustomTitle.Input) async throws -> Operations.post_sol_setChatAdministratorCustomTitle.Output {
+    public func postSetChatAdministratorCustomTitle(_ input: Operations.PostSetChatAdministratorCustomTitle.Input) async throws -> Operations.PostSetChatAdministratorCustomTitle.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_setChatAdministratorCustomTitle.id,
+            forOperation: Operations.PostSetChatAdministratorCustomTitle.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/setChatAdministratorCustomTitle",
@@ -10969,7 +10969,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -10983,7 +10983,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .user_id(wrapped):
+                            case let .userId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -10997,7 +10997,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .custom_title(wrapped):
+                            case let .customTitle(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -11029,7 +11029,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_setChatAdministratorCustomTitle.Output.Ok.Body
+                    let body: Operations.PostSetChatAdministratorCustomTitle.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11039,7 +11039,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_setChatAdministratorCustomTitle.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSetChatAdministratorCustomTitle.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -11051,7 +11051,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_setChatAdministratorCustomTitle.Output.Default.Body
+                    let body: Operations.PostSetChatAdministratorCustomTitle.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11082,10 +11082,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /setChatPermissions`.
     /// - Remark: Generated from `#/paths//setChatPermissions/post`.
-    public func post_sol_setChatPermissions(_ input: Operations.post_sol_setChatPermissions.Input) async throws -> Operations.post_sol_setChatPermissions.Output {
+    public func postSetChatPermissions(_ input: Operations.PostSetChatPermissions.Input) async throws -> Operations.PostSetChatPermissions.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_setChatPermissions.id,
+            forOperation: Operations.PostSetChatPermissions.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/setChatPermissions",
@@ -11123,7 +11123,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -11169,7 +11169,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_setChatPermissions.Output.Ok.Body
+                    let body: Operations.PostSetChatPermissions.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11179,7 +11179,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_setChatPermissions.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSetChatPermissions.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -11191,7 +11191,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_setChatPermissions.Output.Default.Body
+                    let body: Operations.PostSetChatPermissions.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11222,10 +11222,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /exportChatInviteLink`.
     /// - Remark: Generated from `#/paths//exportChatInviteLink/post`.
-    public func post_sol_exportChatInviteLink(_ input: Operations.post_sol_exportChatInviteLink.Input) async throws -> Operations.post_sol_exportChatInviteLink.Output {
+    public func postExportChatInviteLink(_ input: Operations.PostExportChatInviteLink.Input) async throws -> Operations.PostExportChatInviteLink.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_exportChatInviteLink.id,
+            forOperation: Operations.PostExportChatInviteLink.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/exportChatInviteLink",
@@ -11262,7 +11262,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -11294,7 +11294,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_exportChatInviteLink.Output.Ok.Body
+                    let body: Operations.PostExportChatInviteLink.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11304,7 +11304,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_exportChatInviteLink.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostExportChatInviteLink.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -11316,7 +11316,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_exportChatInviteLink.Output.Default.Body
+                    let body: Operations.PostExportChatInviteLink.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11347,10 +11347,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /setChatPhoto`.
     /// - Remark: Generated from `#/paths//setChatPhoto/post`.
-    public func post_sol_setChatPhoto(_ input: Operations.post_sol_setChatPhoto.Input) async throws -> Operations.post_sol_setChatPhoto.Output {
+    public func postSetChatPhoto(_ input: Operations.PostSetChatPhoto.Input) async throws -> Operations.PostSetChatPhoto.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_setChatPhoto.id,
+            forOperation: Operations.PostSetChatPhoto.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/setChatPhoto",
@@ -11382,7 +11382,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -11422,7 +11422,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_setChatPhoto.Output.Ok.Body
+                    let body: Operations.PostSetChatPhoto.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11432,7 +11432,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_setChatPhoto.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSetChatPhoto.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -11444,7 +11444,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_setChatPhoto.Output.Default.Body
+                    let body: Operations.PostSetChatPhoto.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11475,10 +11475,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /deleteChatPhoto`.
     /// - Remark: Generated from `#/paths//deleteChatPhoto/post`.
-    public func post_sol_deleteChatPhoto(_ input: Operations.post_sol_deleteChatPhoto.Input) async throws -> Operations.post_sol_deleteChatPhoto.Output {
+    public func postDeleteChatPhoto(_ input: Operations.PostDeleteChatPhoto.Input) async throws -> Operations.PostDeleteChatPhoto.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_deleteChatPhoto.id,
+            forOperation: Operations.PostDeleteChatPhoto.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/deleteChatPhoto",
@@ -11515,7 +11515,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -11547,7 +11547,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_deleteChatPhoto.Output.Ok.Body
+                    let body: Operations.PostDeleteChatPhoto.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11557,7 +11557,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_deleteChatPhoto.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostDeleteChatPhoto.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -11569,7 +11569,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_deleteChatPhoto.Output.Default.Body
+                    let body: Operations.PostDeleteChatPhoto.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11600,10 +11600,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /setChatTitle`.
     /// - Remark: Generated from `#/paths//setChatTitle/post`.
-    public func post_sol_setChatTitle(_ input: Operations.post_sol_setChatTitle.Input) async throws -> Operations.post_sol_setChatTitle.Output {
+    public func postSetChatTitle(_ input: Operations.PostSetChatTitle.Input) async throws -> Operations.PostSetChatTitle.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_setChatTitle.id,
+            forOperation: Operations.PostSetChatTitle.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/setChatTitle",
@@ -11641,7 +11641,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -11687,7 +11687,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_setChatTitle.Output.Ok.Body
+                    let body: Operations.PostSetChatTitle.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11697,7 +11697,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_setChatTitle.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSetChatTitle.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -11709,7 +11709,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_setChatTitle.Output.Default.Body
+                    let body: Operations.PostSetChatTitle.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11740,10 +11740,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /setChatDescription`.
     /// - Remark: Generated from `#/paths//setChatDescription/post`.
-    public func post_sol_setChatDescription(_ input: Operations.post_sol_setChatDescription.Input) async throws -> Operations.post_sol_setChatDescription.Output {
+    public func postSetChatDescription(_ input: Operations.PostSetChatDescription.Input) async throws -> Operations.PostSetChatDescription.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_setChatDescription.id,
+            forOperation: Operations.PostSetChatDescription.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/setChatDescription",
@@ -11782,7 +11782,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -11828,7 +11828,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_setChatDescription.Output.Ok.Body
+                    let body: Operations.PostSetChatDescription.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11838,7 +11838,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_setChatDescription.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSetChatDescription.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -11850,7 +11850,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_setChatDescription.Output.Default.Body
+                    let body: Operations.PostSetChatDescription.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11881,10 +11881,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /pinChatMessage`.
     /// - Remark: Generated from `#/paths//pinChatMessage/post`.
-    public func post_sol_pinChatMessage(_ input: Operations.post_sol_pinChatMessage.Input) async throws -> Operations.post_sol_pinChatMessage.Output {
+    public func postPinChatMessage(_ input: Operations.PostPinChatMessage.Input) async throws -> Operations.PostPinChatMessage.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_pinChatMessage.id,
+            forOperation: Operations.PostPinChatMessage.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/pinChatMessage",
@@ -11924,7 +11924,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -11938,7 +11938,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .message_id(wrapped):
+                            case let .messageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -11952,7 +11952,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .disable_notification(wrapped):
+                            case let .disableNotification(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -11984,7 +11984,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_pinChatMessage.Output.Ok.Body
+                    let body: Operations.PostPinChatMessage.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11994,7 +11994,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_pinChatMessage.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostPinChatMessage.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -12006,7 +12006,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_pinChatMessage.Output.Default.Body
+                    let body: Operations.PostPinChatMessage.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12037,10 +12037,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /unpinChatMessage`.
     /// - Remark: Generated from `#/paths//unpinChatMessage/post`.
-    public func post_sol_unpinChatMessage(_ input: Operations.post_sol_unpinChatMessage.Input) async throws -> Operations.post_sol_unpinChatMessage.Output {
+    public func postUnpinChatMessage(_ input: Operations.PostUnpinChatMessage.Input) async throws -> Operations.PostUnpinChatMessage.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_unpinChatMessage.id,
+            forOperation: Operations.PostUnpinChatMessage.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/unpinChatMessage",
@@ -12079,7 +12079,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -12093,7 +12093,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .message_id(wrapped):
+                            case let .messageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -12125,7 +12125,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_unpinChatMessage.Output.Ok.Body
+                    let body: Operations.PostUnpinChatMessage.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12135,7 +12135,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_unpinChatMessage.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostUnpinChatMessage.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -12147,7 +12147,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_unpinChatMessage.Output.Default.Body
+                    let body: Operations.PostUnpinChatMessage.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12178,10 +12178,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /unpinAllChatMessages`.
     /// - Remark: Generated from `#/paths//unpinAllChatMessages/post`.
-    public func post_sol_unpinAllChatMessages(_ input: Operations.post_sol_unpinAllChatMessages.Input) async throws -> Operations.post_sol_unpinAllChatMessages.Output {
+    public func postUnpinAllChatMessages(_ input: Operations.PostUnpinAllChatMessages.Input) async throws -> Operations.PostUnpinAllChatMessages.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_unpinAllChatMessages.id,
+            forOperation: Operations.PostUnpinAllChatMessages.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/unpinAllChatMessages",
@@ -12218,7 +12218,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -12250,7 +12250,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_unpinAllChatMessages.Output.Ok.Body
+                    let body: Operations.PostUnpinAllChatMessages.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12260,7 +12260,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_unpinAllChatMessages.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostUnpinAllChatMessages.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -12272,7 +12272,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_unpinAllChatMessages.Output.Default.Body
+                    let body: Operations.PostUnpinAllChatMessages.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12303,10 +12303,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /leaveChat`.
     /// - Remark: Generated from `#/paths//leaveChat/post`.
-    public func post_sol_leaveChat(_ input: Operations.post_sol_leaveChat.Input) async throws -> Operations.post_sol_leaveChat.Output {
+    public func postLeaveChat(_ input: Operations.PostLeaveChat.Input) async throws -> Operations.PostLeaveChat.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_leaveChat.id,
+            forOperation: Operations.PostLeaveChat.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/leaveChat",
@@ -12343,7 +12343,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -12375,7 +12375,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_leaveChat.Output.Ok.Body
+                    let body: Operations.PostLeaveChat.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12385,7 +12385,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_leaveChat.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostLeaveChat.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -12397,7 +12397,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_leaveChat.Output.Default.Body
+                    let body: Operations.PostLeaveChat.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12428,10 +12428,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /getChat`.
     /// - Remark: Generated from `#/paths//getChat/post`.
-    public func post_sol_getChat(_ input: Operations.post_sol_getChat.Input) async throws -> Operations.post_sol_getChat.Output {
+    public func postGetChat(_ input: Operations.PostGetChat.Input) async throws -> Operations.PostGetChat.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_getChat.id,
+            forOperation: Operations.PostGetChat.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/getChat",
@@ -12468,7 +12468,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -12500,7 +12500,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getChat.Output.Ok.Body
+                    let body: Operations.PostGetChat.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12510,7 +12510,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_getChat.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostGetChat.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -12522,7 +12522,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getChat.Output.Default.Body
+                    let body: Operations.PostGetChat.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12553,10 +12553,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /getChatAdministrators`.
     /// - Remark: Generated from `#/paths//getChatAdministrators/post`.
-    public func post_sol_getChatAdministrators(_ input: Operations.post_sol_getChatAdministrators.Input) async throws -> Operations.post_sol_getChatAdministrators.Output {
+    public func postGetChatAdministrators(_ input: Operations.PostGetChatAdministrators.Input) async throws -> Operations.PostGetChatAdministrators.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_getChatAdministrators.id,
+            forOperation: Operations.PostGetChatAdministrators.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/getChatAdministrators",
@@ -12593,7 +12593,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -12625,7 +12625,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getChatAdministrators.Output.Ok.Body
+                    let body: Operations.PostGetChatAdministrators.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12635,7 +12635,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_getChatAdministrators.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostGetChatAdministrators.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -12647,7 +12647,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getChatAdministrators.Output.Default.Body
+                    let body: Operations.PostGetChatAdministrators.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12678,10 +12678,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /getChatMembersCount`.
     /// - Remark: Generated from `#/paths//getChatMembersCount/post`.
-    public func post_sol_getChatMembersCount(_ input: Operations.post_sol_getChatMembersCount.Input) async throws -> Operations.post_sol_getChatMembersCount.Output {
+    public func postGetChatMembersCount(_ input: Operations.PostGetChatMembersCount.Input) async throws -> Operations.PostGetChatMembersCount.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_getChatMembersCount.id,
+            forOperation: Operations.PostGetChatMembersCount.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/getChatMembersCount",
@@ -12718,7 +12718,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -12750,7 +12750,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getChatMembersCount.Output.Ok.Body
+                    let body: Operations.PostGetChatMembersCount.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12760,7 +12760,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_getChatMembersCount.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostGetChatMembersCount.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -12772,7 +12772,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getChatMembersCount.Output.Default.Body
+                    let body: Operations.PostGetChatMembersCount.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12803,10 +12803,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /getChatMember`.
     /// - Remark: Generated from `#/paths//getChatMember/post`.
-    public func post_sol_getChatMember(_ input: Operations.post_sol_getChatMember.Input) async throws -> Operations.post_sol_getChatMember.Output {
+    public func postGetChatMember(_ input: Operations.PostGetChatMember.Input) async throws -> Operations.PostGetChatMember.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_getChatMember.id,
+            forOperation: Operations.PostGetChatMember.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/getChatMember",
@@ -12844,7 +12844,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -12858,7 +12858,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .user_id(wrapped):
+                            case let .userId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -12890,7 +12890,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getChatMember.Output.Ok.Body
+                    let body: Operations.PostGetChatMember.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12900,7 +12900,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_getChatMember.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostGetChatMember.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -12912,7 +12912,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getChatMember.Output.Default.Body
+                    let body: Operations.PostGetChatMember.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12943,10 +12943,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /setChatStickerSet`.
     /// - Remark: Generated from `#/paths//setChatStickerSet/post`.
-    public func post_sol_setChatStickerSet(_ input: Operations.post_sol_setChatStickerSet.Input) async throws -> Operations.post_sol_setChatStickerSet.Output {
+    public func postSetChatStickerSet(_ input: Operations.PostSetChatStickerSet.Input) async throws -> Operations.PostSetChatStickerSet.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_setChatStickerSet.id,
+            forOperation: Operations.PostSetChatStickerSet.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/setChatStickerSet",
@@ -12984,7 +12984,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -12998,7 +12998,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .sticker_set_name(wrapped):
+                            case let .stickerSetName(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -13030,7 +13030,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_setChatStickerSet.Output.Ok.Body
+                    let body: Operations.PostSetChatStickerSet.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13040,7 +13040,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_setChatStickerSet.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSetChatStickerSet.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -13052,7 +13052,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_setChatStickerSet.Output.Default.Body
+                    let body: Operations.PostSetChatStickerSet.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13083,10 +13083,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /deleteChatStickerSet`.
     /// - Remark: Generated from `#/paths//deleteChatStickerSet/post`.
-    public func post_sol_deleteChatStickerSet(_ input: Operations.post_sol_deleteChatStickerSet.Input) async throws -> Operations.post_sol_deleteChatStickerSet.Output {
+    public func postDeleteChatStickerSet(_ input: Operations.PostDeleteChatStickerSet.Input) async throws -> Operations.PostDeleteChatStickerSet.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_deleteChatStickerSet.id,
+            forOperation: Operations.PostDeleteChatStickerSet.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/deleteChatStickerSet",
@@ -13123,7 +13123,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -13155,7 +13155,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_deleteChatStickerSet.Output.Ok.Body
+                    let body: Operations.PostDeleteChatStickerSet.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13165,7 +13165,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_deleteChatStickerSet.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostDeleteChatStickerSet.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -13177,7 +13177,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_deleteChatStickerSet.Output.Default.Body
+                    let body: Operations.PostDeleteChatStickerSet.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13210,10 +13210,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /answerCallbackQuery`.
     /// - Remark: Generated from `#/paths//answerCallbackQuery/post`.
-    public func post_sol_answerCallbackQuery(_ input: Operations.post_sol_answerCallbackQuery.Input) async throws -> Operations.post_sol_answerCallbackQuery.Output {
+    public func postAnswerCallbackQuery(_ input: Operations.PostAnswerCallbackQuery.Input) async throws -> Operations.PostAnswerCallbackQuery.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_answerCallbackQuery.id,
+            forOperation: Operations.PostAnswerCallbackQuery.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/answerCallbackQuery",
@@ -13255,7 +13255,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .callback_query_id(wrapped):
+                            case let .callbackQueryId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -13283,7 +13283,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .show_alert(wrapped):
+                            case let .showAlert(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -13311,7 +13311,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .cache_time(wrapped):
+                            case let .cacheTime(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -13343,7 +13343,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_answerCallbackQuery.Output.Ok.Body
+                    let body: Operations.PostAnswerCallbackQuery.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13353,7 +13353,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_answerCallbackQuery.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostAnswerCallbackQuery.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -13365,7 +13365,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_answerCallbackQuery.Output.Default.Body
+                    let body: Operations.PostAnswerCallbackQuery.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13396,10 +13396,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /setMyCommands`.
     /// - Remark: Generated from `#/paths//setMyCommands/post`.
-    public func post_sol_setMyCommands(_ input: Operations.post_sol_setMyCommands.Input) async throws -> Operations.post_sol_setMyCommands.Output {
+    public func postSetMyCommands(_ input: Operations.PostSetMyCommands.Input) async throws -> Operations.PostSetMyCommands.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_setMyCommands.id,
+            forOperation: Operations.PostSetMyCommands.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/setMyCommands",
@@ -13468,7 +13468,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_setMyCommands.Output.Ok.Body
+                    let body: Operations.PostSetMyCommands.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13478,7 +13478,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_setMyCommands.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSetMyCommands.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -13490,7 +13490,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_setMyCommands.Output.Default.Body
+                    let body: Operations.PostSetMyCommands.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13521,10 +13521,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /getMyCommands`.
     /// - Remark: Generated from `#/paths//getMyCommands/post`.
-    public func post_sol_getMyCommands(_ input: Operations.post_sol_getMyCommands.Input) async throws -> Operations.post_sol_getMyCommands.Output {
+    public func postGetMyCommands(_ input: Operations.PostGetMyCommands.Input) async throws -> Operations.PostGetMyCommands.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_getMyCommands.id,
+            forOperation: Operations.PostGetMyCommands.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/getMyCommands",
@@ -13545,7 +13545,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getMyCommands.Output.Ok.Body
+                    let body: Operations.PostGetMyCommands.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13555,7 +13555,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_getMyCommands.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostGetMyCommands.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -13567,7 +13567,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getMyCommands.Output.Default.Body
+                    let body: Operations.PostGetMyCommands.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13598,10 +13598,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /editMessageText`.
     /// - Remark: Generated from `#/paths//editMessageText/post`.
-    public func post_sol_editMessageText(_ input: Operations.post_sol_editMessageText.Input) async throws -> Operations.post_sol_editMessageText.Output {
+    public func postEditMessageText(_ input: Operations.PostEditMessageText.Input) async throws -> Operations.PostEditMessageText.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_editMessageText.id,
+            forOperation: Operations.PostEditMessageText.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/editMessageText",
@@ -13647,7 +13647,7 @@ public struct Client: APIProtocol {
                         ],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -13661,7 +13661,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .message_id(wrapped):
+                            case let .messageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -13675,7 +13675,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .inline_message_id(wrapped):
+                            case let .inlineMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -13703,7 +13703,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .parse_mode(wrapped):
+                            case let .parseMode(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -13731,7 +13731,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .disable_web_page_preview(wrapped):
+                            case let .disableWebPagePreview(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -13745,7 +13745,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_markup(wrapped):
+                            case let .replyMarkup(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -13777,7 +13777,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_editMessageText.Output.Ok.Body
+                    let body: Operations.PostEditMessageText.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13787,7 +13787,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_editMessageText.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostEditMessageText.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -13799,7 +13799,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_editMessageText.Output.Default.Body
+                    let body: Operations.PostEditMessageText.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13830,10 +13830,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /editMessageCaption`.
     /// - Remark: Generated from `#/paths//editMessageCaption/post`.
-    public func post_sol_editMessageCaption(_ input: Operations.post_sol_editMessageCaption.Input) async throws -> Operations.post_sol_editMessageCaption.Output {
+    public func postEditMessageCaption(_ input: Operations.PostEditMessageCaption.Input) async throws -> Operations.PostEditMessageCaption.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_editMessageCaption.id,
+            forOperation: Operations.PostEditMessageCaption.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/editMessageCaption",
@@ -13877,7 +13877,7 @@ public struct Client: APIProtocol {
                         ],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -13891,7 +13891,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .message_id(wrapped):
+                            case let .messageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -13905,7 +13905,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .inline_message_id(wrapped):
+                            case let .inlineMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -13933,7 +13933,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .parse_mode(wrapped):
+                            case let .parseMode(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -13947,7 +13947,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .caption_entities(wrapped):
+                            case let .captionEntities(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -13961,7 +13961,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_markup(wrapped):
+                            case let .replyMarkup(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -13993,7 +13993,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_editMessageCaption.Output.Ok.Body
+                    let body: Operations.PostEditMessageCaption.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14003,7 +14003,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_editMessageCaption.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostEditMessageCaption.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -14015,7 +14015,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_editMessageCaption.Output.Default.Body
+                    let body: Operations.PostEditMessageCaption.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14046,10 +14046,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /editMessageMedia`.
     /// - Remark: Generated from `#/paths//editMessageMedia/post`.
-    public func post_sol_editMessageMedia(_ input: Operations.post_sol_editMessageMedia.Input) async throws -> Operations.post_sol_editMessageMedia.Output {
+    public func postEditMessageMedia(_ input: Operations.PostEditMessageMedia.Input) async throws -> Operations.PostEditMessageMedia.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_editMessageMedia.id,
+            forOperation: Operations.PostEditMessageMedia.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/editMessageMedia",
@@ -14085,7 +14085,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -14099,7 +14099,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .message_id(wrapped):
+                            case let .messageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -14113,7 +14113,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .inline_message_id(wrapped):
+                            case let .inlineMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -14141,7 +14141,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_markup(wrapped):
+                            case let .replyMarkup(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -14167,7 +14167,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_editMessageMedia.Output.Ok.Body
+                    let body: Operations.PostEditMessageMedia.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14177,7 +14177,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_editMessageMedia.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostEditMessageMedia.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -14189,7 +14189,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_editMessageMedia.Output.Default.Body
+                    let body: Operations.PostEditMessageMedia.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14220,10 +14220,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /editMessageReplyMarkup`.
     /// - Remark: Generated from `#/paths//editMessageReplyMarkup/post`.
-    public func post_sol_editMessageReplyMarkup(_ input: Operations.post_sol_editMessageReplyMarkup.Input) async throws -> Operations.post_sol_editMessageReplyMarkup.Output {
+    public func postEditMessageReplyMarkup(_ input: Operations.PostEditMessageReplyMarkup.Input) async throws -> Operations.PostEditMessageReplyMarkup.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_editMessageReplyMarkup.id,
+            forOperation: Operations.PostEditMessageReplyMarkup.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/editMessageReplyMarkup",
@@ -14263,7 +14263,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -14277,7 +14277,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .message_id(wrapped):
+                            case let .messageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -14291,7 +14291,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .inline_message_id(wrapped):
+                            case let .inlineMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -14305,7 +14305,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_markup(wrapped):
+                            case let .replyMarkup(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -14337,7 +14337,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_editMessageReplyMarkup.Output.Ok.Body
+                    let body: Operations.PostEditMessageReplyMarkup.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14347,7 +14347,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_editMessageReplyMarkup.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostEditMessageReplyMarkup.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -14359,7 +14359,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_editMessageReplyMarkup.Output.Default.Body
+                    let body: Operations.PostEditMessageReplyMarkup.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14390,10 +14390,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /stopPoll`.
     /// - Remark: Generated from `#/paths//stopPoll/post`.
-    public func post_sol_stopPoll(_ input: Operations.post_sol_stopPoll.Input) async throws -> Operations.post_sol_stopPoll.Output {
+    public func postStopPoll(_ input: Operations.PostStopPoll.Input) async throws -> Operations.PostStopPoll.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_stopPoll.id,
+            forOperation: Operations.PostStopPoll.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/stopPoll",
@@ -14433,7 +14433,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -14447,7 +14447,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .message_id(wrapped):
+                            case let .messageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -14461,7 +14461,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_markup(wrapped):
+                            case let .replyMarkup(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -14493,7 +14493,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_stopPoll.Output.Ok.Body
+                    let body: Operations.PostStopPoll.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14503,7 +14503,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_stopPoll.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostStopPoll.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -14515,7 +14515,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_stopPoll.Output.Default.Body
+                    let body: Operations.PostStopPoll.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14554,10 +14554,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /deleteMessage`.
     /// - Remark: Generated from `#/paths//deleteMessage/post`.
-    public func post_sol_deleteMessage(_ input: Operations.post_sol_deleteMessage.Input) async throws -> Operations.post_sol_deleteMessage.Output {
+    public func postDeleteMessage(_ input: Operations.PostDeleteMessage.Input) async throws -> Operations.PostDeleteMessage.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_deleteMessage.id,
+            forOperation: Operations.PostDeleteMessage.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/deleteMessage",
@@ -14595,7 +14595,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -14609,7 +14609,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .message_id(wrapped):
+                            case let .messageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -14641,7 +14641,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_deleteMessage.Output.Ok.Body
+                    let body: Operations.PostDeleteMessage.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14651,7 +14651,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_deleteMessage.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostDeleteMessage.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -14663,7 +14663,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_deleteMessage.Output.Default.Body
+                    let body: Operations.PostDeleteMessage.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14694,10 +14694,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /sendSticker`.
     /// - Remark: Generated from `#/paths//sendSticker/post`.
-    public func post_sol_sendSticker(_ input: Operations.post_sol_sendSticker.Input) async throws -> Operations.post_sol_sendSticker.Output {
+    public func postSendSticker(_ input: Operations.PostSendSticker.Input) async throws -> Operations.PostSendSticker.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_sendSticker.id,
+            forOperation: Operations.PostSendSticker.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/sendSticker",
@@ -14735,7 +14735,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -14763,7 +14763,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .disable_notification(wrapped):
+                            case let .disableNotification(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -14777,7 +14777,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_to_message_id(wrapped):
+                            case let .replyToMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -14791,7 +14791,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .allow_sending_without_reply(wrapped):
+                            case let .allowSendingWithoutReply(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -14805,7 +14805,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_markup(wrapped):
+                            case let .replyMarkup(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -14819,7 +14819,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .send_at(wrapped):
+                            case let .sendAt(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -14845,7 +14845,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendSticker.Output.Ok.Body
+                    let body: Operations.PostSendSticker.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14855,7 +14855,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_sendSticker.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSendSticker.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -14867,7 +14867,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendSticker.Output.Default.Body
+                    let body: Operations.PostSendSticker.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14898,10 +14898,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /getStickerSet`.
     /// - Remark: Generated from `#/paths//getStickerSet/post`.
-    public func post_sol_getStickerSet(_ input: Operations.post_sol_getStickerSet.Input) async throws -> Operations.post_sol_getStickerSet.Output {
+    public func postGetStickerSet(_ input: Operations.PostGetStickerSet.Input) async throws -> Operations.PostGetStickerSet.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_getStickerSet.id,
+            forOperation: Operations.PostGetStickerSet.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/getStickerSet",
@@ -14970,7 +14970,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getStickerSet.Output.Ok.Body
+                    let body: Operations.PostGetStickerSet.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14980,7 +14980,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_getStickerSet.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostGetStickerSet.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -14992,7 +14992,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getStickerSet.Output.Default.Body
+                    let body: Operations.PostGetStickerSet.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -15023,10 +15023,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /uploadStickerFile`.
     /// - Remark: Generated from `#/paths//uploadStickerFile/post`.
-    public func post_sol_uploadStickerFile(_ input: Operations.post_sol_uploadStickerFile.Input) async throws -> Operations.post_sol_uploadStickerFile.Output {
+    public func postUploadStickerFile(_ input: Operations.PostUploadStickerFile.Input) async throws -> Operations.PostUploadStickerFile.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_uploadStickerFile.id,
+            forOperation: Operations.PostUploadStickerFile.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/uploadStickerFile",
@@ -15058,7 +15058,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .user_id(wrapped):
+                            case let .userId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -15072,7 +15072,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .png_sticker(wrapped):
+                            case let .pngSticker(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -15098,7 +15098,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_uploadStickerFile.Output.Ok.Body
+                    let body: Operations.PostUploadStickerFile.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -15108,7 +15108,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_uploadStickerFile.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostUploadStickerFile.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -15120,7 +15120,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_uploadStickerFile.Output.Default.Body
+                    let body: Operations.PostUploadStickerFile.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -15151,10 +15151,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /createNewStickerSet`.
     /// - Remark: Generated from `#/paths//createNewStickerSet/post`.
-    public func post_sol_createNewStickerSet(_ input: Operations.post_sol_createNewStickerSet.Input) async throws -> Operations.post_sol_createNewStickerSet.Output {
+    public func postCreateNewStickerSet(_ input: Operations.PostCreateNewStickerSet.Input) async throws -> Operations.PostCreateNewStickerSet.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_createNewStickerSet.id,
+            forOperation: Operations.PostCreateNewStickerSet.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/createNewStickerSet",
@@ -15193,7 +15193,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .user_id(wrapped):
+                            case let .userId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -15235,7 +15235,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .png_sticker(wrapped):
+                            case let .pngSticker(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -15249,7 +15249,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .tgs_sticker(wrapped):
+                            case let .tgsSticker(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -15277,7 +15277,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .contains_masks(wrapped):
+                            case let .containsMasks(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -15291,7 +15291,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .mask_position(wrapped):
+                            case let .maskPosition(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -15317,7 +15317,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_createNewStickerSet.Output.Ok.Body
+                    let body: Operations.PostCreateNewStickerSet.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -15327,7 +15327,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_createNewStickerSet.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostCreateNewStickerSet.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -15339,7 +15339,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_createNewStickerSet.Output.Default.Body
+                    let body: Operations.PostCreateNewStickerSet.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -15370,10 +15370,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /addStickerToSet`.
     /// - Remark: Generated from `#/paths//addStickerToSet/post`.
-    public func post_sol_addStickerToSet(_ input: Operations.post_sol_addStickerToSet.Input) async throws -> Operations.post_sol_addStickerToSet.Output {
+    public func postAddStickerToSet(_ input: Operations.PostAddStickerToSet.Input) async throws -> Operations.PostAddStickerToSet.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_addStickerToSet.id,
+            forOperation: Operations.PostAddStickerToSet.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/addStickerToSet",
@@ -15410,7 +15410,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .user_id(wrapped):
+                            case let .userId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -15438,7 +15438,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .png_sticker(wrapped):
+                            case let .pngSticker(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -15452,7 +15452,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .tgs_sticker(wrapped):
+                            case let .tgsSticker(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -15480,7 +15480,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .mask_position(wrapped):
+                            case let .maskPosition(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -15506,7 +15506,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_addStickerToSet.Output.Ok.Body
+                    let body: Operations.PostAddStickerToSet.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -15516,7 +15516,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_addStickerToSet.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostAddStickerToSet.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -15528,7 +15528,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_addStickerToSet.Output.Default.Body
+                    let body: Operations.PostAddStickerToSet.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -15559,10 +15559,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /setStickerPositionInSet`.
     /// - Remark: Generated from `#/paths//setStickerPositionInSet/post`.
-    public func post_sol_setStickerPositionInSet(_ input: Operations.post_sol_setStickerPositionInSet.Input) async throws -> Operations.post_sol_setStickerPositionInSet.Output {
+    public func postSetStickerPositionInSet(_ input: Operations.PostSetStickerPositionInSet.Input) async throws -> Operations.PostSetStickerPositionInSet.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_setStickerPositionInSet.id,
+            forOperation: Operations.PostSetStickerPositionInSet.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/setStickerPositionInSet",
@@ -15646,7 +15646,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_setStickerPositionInSet.Output.Ok.Body
+                    let body: Operations.PostSetStickerPositionInSet.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -15656,7 +15656,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_setStickerPositionInSet.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSetStickerPositionInSet.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -15668,7 +15668,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_setStickerPositionInSet.Output.Default.Body
+                    let body: Operations.PostSetStickerPositionInSet.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -15699,10 +15699,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /deleteStickerFromSet`.
     /// - Remark: Generated from `#/paths//deleteStickerFromSet/post`.
-    public func post_sol_deleteStickerFromSet(_ input: Operations.post_sol_deleteStickerFromSet.Input) async throws -> Operations.post_sol_deleteStickerFromSet.Output {
+    public func postDeleteStickerFromSet(_ input: Operations.PostDeleteStickerFromSet.Input) async throws -> Operations.PostDeleteStickerFromSet.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_deleteStickerFromSet.id,
+            forOperation: Operations.PostDeleteStickerFromSet.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/deleteStickerFromSet",
@@ -15771,7 +15771,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_deleteStickerFromSet.Output.Ok.Body
+                    let body: Operations.PostDeleteStickerFromSet.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -15781,7 +15781,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_deleteStickerFromSet.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostDeleteStickerFromSet.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -15793,7 +15793,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_deleteStickerFromSet.Output.Default.Body
+                    let body: Operations.PostDeleteStickerFromSet.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -15824,10 +15824,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /setStickerSetThumb`.
     /// - Remark: Generated from `#/paths//setStickerSetThumb/post`.
-    public func post_sol_setStickerSetThumb(_ input: Operations.post_sol_setStickerSetThumb.Input) async throws -> Operations.post_sol_setStickerSetThumb.Output {
+    public func postSetStickerSetThumb(_ input: Operations.PostSetStickerSetThumb.Input) async throws -> Operations.PostSetStickerSetThumb.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_setStickerSetThumb.id,
+            forOperation: Operations.PostSetStickerSetThumb.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/setStickerSetThumb",
@@ -15875,7 +15875,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .user_id(wrapped):
+                            case let .userId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -15915,7 +15915,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_setStickerSetThumb.Output.Ok.Body
+                    let body: Operations.PostSetStickerSetThumb.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -15925,7 +15925,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_setStickerSetThumb.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSetStickerSetThumb.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -15937,7 +15937,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_setStickerSetThumb.Output.Default.Body
+                    let body: Operations.PostSetStickerSetThumb.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -15969,10 +15969,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /answerInlineQuery`.
     /// - Remark: Generated from `#/paths//answerInlineQuery/post`.
-    public func post_sol_answerInlineQuery(_ input: Operations.post_sol_answerInlineQuery.Input) async throws -> Operations.post_sol_answerInlineQuery.Output {
+    public func postAnswerInlineQuery(_ input: Operations.PostAnswerInlineQuery.Input) async throws -> Operations.PostAnswerInlineQuery.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_answerInlineQuery.id,
+            forOperation: Operations.PostAnswerInlineQuery.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/answerInlineQuery",
@@ -16017,7 +16017,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .inline_query_id(wrapped):
+                            case let .inlineQueryId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16045,7 +16045,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .cache_time(wrapped):
+                            case let .cacheTime(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16059,7 +16059,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .is_personal(wrapped):
+                            case let .isPersonal(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16073,7 +16073,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .next_offset(wrapped):
+                            case let .nextOffset(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16087,7 +16087,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .switch_pm_text(wrapped):
+                            case let .switchPmText(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16101,7 +16101,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .switch_pm_parameter(wrapped):
+                            case let .switchPmParameter(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16133,7 +16133,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_answerInlineQuery.Output.Ok.Body
+                    let body: Operations.PostAnswerInlineQuery.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -16143,7 +16143,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_answerInlineQuery.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostAnswerInlineQuery.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -16155,7 +16155,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_answerInlineQuery.Output.Default.Body
+                    let body: Operations.PostAnswerInlineQuery.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -16186,10 +16186,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /sendInvoice`.
     /// - Remark: Generated from `#/paths//sendInvoice/post`.
-    public func post_sol_sendInvoice(_ input: Operations.post_sol_sendInvoice.Input) async throws -> Operations.post_sol_sendInvoice.Output {
+    public func postSendInvoice(_ input: Operations.PostSendInvoice.Input) async throws -> Operations.PostSendInvoice.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_sendInvoice.id,
+            forOperation: Operations.PostSendInvoice.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/sendInvoice",
@@ -16251,7 +16251,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16307,7 +16307,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .provider_token(wrapped):
+                            case let .providerToken(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16321,7 +16321,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .start_parameter(wrapped):
+                            case let .startParameter(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16363,7 +16363,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .provider_data(wrapped):
+                            case let .providerData(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16377,7 +16377,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .photo_url(wrapped):
+                            case let .photoUrl(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16391,7 +16391,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .photo_size(wrapped):
+                            case let .photoSize(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16405,7 +16405,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .photo_width(wrapped):
+                            case let .photoWidth(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16419,7 +16419,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .photo_height(wrapped):
+                            case let .photoHeight(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16433,7 +16433,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .need_name(wrapped):
+                            case let .needName(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16447,7 +16447,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .need_phone_number(wrapped):
+                            case let .needPhoneNumber(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16461,7 +16461,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .need_email(wrapped):
+                            case let .needEmail(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16475,7 +16475,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .need_shipping_address(wrapped):
+                            case let .needShippingAddress(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16489,7 +16489,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .send_phone_number_to_provider(wrapped):
+                            case let .sendPhoneNumberToProvider(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16503,7 +16503,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .send_email_to_provider(wrapped):
+                            case let .sendEmailToProvider(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16517,7 +16517,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .is_flexible(wrapped):
+                            case let .isFlexible(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16531,7 +16531,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .disable_notification(wrapped):
+                            case let .disableNotification(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16545,7 +16545,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_to_message_id(wrapped):
+                            case let .replyToMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16559,7 +16559,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .allow_sending_without_reply(wrapped):
+                            case let .allowSendingWithoutReply(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16573,7 +16573,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_markup(wrapped):
+                            case let .replyMarkup(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -16605,7 +16605,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendInvoice.Output.Ok.Body
+                    let body: Operations.PostSendInvoice.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -16615,7 +16615,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_sendInvoice.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSendInvoice.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -16627,7 +16627,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendInvoice.Output.Default.Body
+                    let body: Operations.PostSendInvoice.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -16658,10 +16658,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /answerShippingQuery`.
     /// - Remark: Generated from `#/paths//answerShippingQuery/post`.
-    public func post_sol_answerShippingQuery(_ input: Operations.post_sol_answerShippingQuery.Input) async throws -> Operations.post_sol_answerShippingQuery.Output {
+    public func postAnswerShippingQuery(_ input: Operations.PostAnswerShippingQuery.Input) async throws -> Operations.PostAnswerShippingQuery.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_answerShippingQuery.id,
+            forOperation: Operations.PostAnswerShippingQuery.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/answerShippingQuery",
@@ -16703,7 +16703,7 @@ public struct Client: APIProtocol {
                         ],
                         encoding: { part in
                             switch part {
-                            case let .shipping_query_id(wrapped):
+                            case let .shippingQueryId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16731,7 +16731,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .shipping_options(wrapped):
+                            case let .shippingOptions(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -16745,7 +16745,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .error_message(wrapped):
+                            case let .errorMessage(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16777,7 +16777,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_answerShippingQuery.Output.Ok.Body
+                    let body: Operations.PostAnswerShippingQuery.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -16787,7 +16787,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_answerShippingQuery.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostAnswerShippingQuery.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -16799,7 +16799,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_answerShippingQuery.Output.Default.Body
+                    let body: Operations.PostAnswerShippingQuery.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -16830,10 +16830,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /answerPreCheckoutQuery`.
     /// - Remark: Generated from `#/paths//answerPreCheckoutQuery/post`.
-    public func post_sol_answerPreCheckoutQuery(_ input: Operations.post_sol_answerPreCheckoutQuery.Input) async throws -> Operations.post_sol_answerPreCheckoutQuery.Output {
+    public func postAnswerPreCheckoutQuery(_ input: Operations.PostAnswerPreCheckoutQuery.Input) async throws -> Operations.PostAnswerPreCheckoutQuery.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_answerPreCheckoutQuery.id,
+            forOperation: Operations.PostAnswerPreCheckoutQuery.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/answerPreCheckoutQuery",
@@ -16873,7 +16873,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .pre_checkout_query_id(wrapped):
+                            case let .preCheckoutQueryId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16901,7 +16901,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .error_message(wrapped):
+                            case let .errorMessage(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -16933,7 +16933,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_answerPreCheckoutQuery.Output.Ok.Body
+                    let body: Operations.PostAnswerPreCheckoutQuery.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -16943,7 +16943,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_answerPreCheckoutQuery.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostAnswerPreCheckoutQuery.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -16955,7 +16955,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_answerPreCheckoutQuery.Output.Default.Body
+                    let body: Operations.PostAnswerPreCheckoutQuery.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -16988,10 +16988,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /setPassportDataErrors`.
     /// - Remark: Generated from `#/paths//setPassportDataErrors/post`.
-    public func post_sol_setPassportDataErrors(_ input: Operations.post_sol_setPassportDataErrors.Input) async throws -> Operations.post_sol_setPassportDataErrors.Output {
+    public func postSetPassportDataErrors(_ input: Operations.PostSetPassportDataErrors.Input) async throws -> Operations.PostSetPassportDataErrors.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_setPassportDataErrors.id,
+            forOperation: Operations.PostSetPassportDataErrors.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/setPassportDataErrors",
@@ -17030,7 +17030,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .user_id(wrapped):
+                            case let .userId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -17076,7 +17076,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_setPassportDataErrors.Output.Ok.Body
+                    let body: Operations.PostSetPassportDataErrors.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -17086,7 +17086,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_setPassportDataErrors.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSetPassportDataErrors.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -17098,7 +17098,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_setPassportDataErrors.Output.Default.Body
+                    let body: Operations.PostSetPassportDataErrors.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -17129,10 +17129,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /sendGame`.
     /// - Remark: Generated from `#/paths//sendGame/post`.
-    public func post_sol_sendGame(_ input: Operations.post_sol_sendGame.Input) async throws -> Operations.post_sol_sendGame.Output {
+    public func postSendGame(_ input: Operations.PostSendGame.Input) async throws -> Operations.PostSendGame.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_sendGame.id,
+            forOperation: Operations.PostSendGame.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/sendGame",
@@ -17175,7 +17175,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -17189,7 +17189,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .game_short_name(wrapped):
+                            case let .gameShortName(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -17203,7 +17203,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .disable_notification(wrapped):
+                            case let .disableNotification(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -17217,7 +17217,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_to_message_id(wrapped):
+                            case let .replyToMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -17231,7 +17231,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .allow_sending_without_reply(wrapped):
+                            case let .allowSendingWithoutReply(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -17245,7 +17245,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .reply_markup(wrapped):
+                            case let .replyMarkup(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsJSON(
@@ -17277,7 +17277,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendGame.Output.Ok.Body
+                    let body: Operations.PostSendGame.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -17287,7 +17287,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_sendGame.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSendGame.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -17299,7 +17299,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_sendGame.Output.Default.Body
+                    let body: Operations.PostSendGame.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -17330,10 +17330,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /setGameScore`.
     /// - Remark: Generated from `#/paths//setGameScore/post`.
-    public func post_sol_setGameScore(_ input: Operations.post_sol_setGameScore.Input) async throws -> Operations.post_sol_setGameScore.Output {
+    public func postSetGameScore(_ input: Operations.PostSetGameScore.Input) async throws -> Operations.PostSetGameScore.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_setGameScore.id,
+            forOperation: Operations.PostSetGameScore.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/setGameScore",
@@ -17377,7 +17377,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .user_id(wrapped):
+                            case let .userId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -17419,7 +17419,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .disable_edit_message(wrapped):
+                            case let .disableEditMessage(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -17433,7 +17433,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -17447,7 +17447,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .message_id(wrapped):
+                            case let .messageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -17461,7 +17461,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .inline_message_id(wrapped):
+                            case let .inlineMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -17493,7 +17493,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_setGameScore.Output.Ok.Body
+                    let body: Operations.PostSetGameScore.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -17503,7 +17503,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_setGameScore.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostSetGameScore.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -17515,7 +17515,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_setGameScore.Output.Default.Body
+                    let body: Operations.PostSetGameScore.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -17548,10 +17548,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /getGameHighScores`.
     /// - Remark: Generated from `#/paths//getGameHighScores/post`.
-    public func post_sol_getGameHighScores(_ input: Operations.post_sol_getGameHighScores.Input) async throws -> Operations.post_sol_getGameHighScores.Output {
+    public func postGetGameHighScores(_ input: Operations.PostGetGameHighScores.Input) async throws -> Operations.PostGetGameHighScores.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.post_sol_getGameHighScores.id,
+            forOperation: Operations.PostGetGameHighScores.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/getGameHighScores",
@@ -17592,7 +17592,7 @@ public struct Client: APIProtocol {
                         zeroOrMoreTimesPartNames: [],
                         encoding: { part in
                             switch part {
-                            case let .user_id(wrapped):
+                            case let .userId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -17606,7 +17606,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .chat_id(wrapped):
+                            case let .chatId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -17620,7 +17620,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .message_id(wrapped):
+                            case let .messageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -17634,7 +17634,7 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .inline_message_id(wrapped):
+                            case let .inlineMessageId(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
                                 let body = try converter.setRequiredRequestBodyAsBinary(
@@ -17666,7 +17666,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getGameHighScores.Output.Ok.Body
+                    let body: Operations.PostGetGameHighScores.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -17676,7 +17676,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.post_sol_getGameHighScores.Output.Ok.Body.jsonPayload.self,
+                            Operations.PostGetGameHighScores.Output.Ok.Body.JsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -17688,7 +17688,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 default:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.post_sol_getGameHighScores.Output.Default.Body
+                    let body: Operations.PostGetGameHighScores.Output.Default.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [

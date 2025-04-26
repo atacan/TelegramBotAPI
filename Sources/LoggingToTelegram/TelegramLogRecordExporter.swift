@@ -60,13 +60,13 @@ public struct TelegramLogRecordExporter: LogRecordExporter, Sendable {
         for record in batch {
             let formattedMessage = formatRecord(record)
             // Use the client to send the message
-            _ = try await client.post_sol_sendMessage(
+            _ = try await client.postSendMessage(
                 .init(
                     body: .json(
                         .init(
-                            chat_id: .init(value2: self.chatId),
+                            chatId: .init(value2: self.chatId),
                             text: formattedMessage,
-                            parse_mode: "MarkdownV2" // Or another mode if preferred
+                            parseMode: "MarkdownV2" // Or another mode if preferred
                         )
                     )
                 )
