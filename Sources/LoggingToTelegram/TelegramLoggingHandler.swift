@@ -77,6 +77,7 @@ public struct TelegramLoggingHandler: LogHandler {
 
         // 2. Create the specific LogRecord type
         var record = TelegramLogRecord(
+            label: self.label,
             message: message,
             level: level,
             metadata: effectiveMetadata,

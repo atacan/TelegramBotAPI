@@ -5,6 +5,7 @@ import Foundation // Added for DateFormatter
 
 // 1. Define the LogRecord conforming type
 public struct TelegramLogRecord: LogRecord, Equatable, Sendable {
+    public var label: String
     public var message: Logger.Message
     public var level: Logger.Level
     public var metadata: Logger.Metadata
@@ -18,6 +19,7 @@ public struct TelegramLogRecord: LogRecord, Equatable, Sendable {
 
     // Initializer matching DefaultLogRecord for convenience
     init(
+        label: String,
         message: Logger.Message,
         level: Logger.Level,
         metadata: Logger.Metadata,
@@ -27,6 +29,7 @@ public struct TelegramLogRecord: LogRecord, Equatable, Sendable {
         line: UInt,
         timestamp: Date
     ) {
+        self.label = label
         self.message = message
         self.level = level
         self.metadata = metadata
@@ -91,7 +94,7 @@ public struct TelegramLogRecordExporter: LogRecordExporter, Sendable {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
         dateFormatter.timeZone = TimeZone.current // Or UTC, etc.
         let timestampString = escapeMarkdownV2(dateFormatter.string(from: timestamp))
-
+        let labelString = record.label
         let levelString = escapeMarkdownV2(record.level.rawValue.uppercased())
         // let messageString = escapeMarkdownV2(record.message.description)
         let messageString = record.message.description
@@ -115,6 +118,7 @@ public struct TelegramLogRecordExporter: LogRecordExporter, Sendable {
         }
 
         return """
+        *\(labelString)*
         *\(levelString)* \\| \(timestampString)
 
         \(messageString)\(metadataString)
