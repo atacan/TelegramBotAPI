@@ -10,17 +10,30 @@ public struct TelegramLogRecord: LogRecord, Equatable, Sendable {
     public var metadata: Logger.Metadata
     // Add any other relevant info, like timestamp if needed for formatting
     public var timestamp: Date
+    // swift-log standard fields
+    public var source: String
+    public var file: String
+    public var function: String
+    public var line: UInt
 
     // Initializer matching DefaultLogRecord for convenience
     init(
         message: Logger.Message,
         level: Logger.Level,
         metadata: Logger.Metadata,
+        source: String,
+        file: String,
+        function: String,
+        line: UInt,
         timestamp: Date
     ) {
         self.message = message
         self.level = level
         self.metadata = metadata
+        self.source = source
+        self.file = file
+        self.function = function
+        self.line = line
         self.timestamp = timestamp
     }
 }
@@ -81,7 +94,12 @@ public struct TelegramLogRecordExporter: LogRecordExporter, Sendable {
 
         let levelString = escapeMarkdownV2(record.level.rawValue.uppercased())
         let messageString = escapeMarkdownV2(record.message.description)
-        
+        // Format source location
+        let fileString = escapeMarkdownV2(record.file)
+        let functionString = escapeMarkdownV2(record.function)
+        let lineString = escapeMarkdownV2("\(record.line)")
+        let sourceLocation = "\(fileString):\(lineString) \\- `\(functionString)`"
+
         // Improved metadata formatting
         let metadataString: String
         if record.metadata.isEmpty {
@@ -94,10 +112,10 @@ public struct TelegramLogRecordExporter: LogRecordExporter, Sendable {
             metadataString = "\n\n*Metadata:*\n```\n\(formattedMetadata)\n```"
         }
 
-
         return """
         *\(levelString)* \\| \(timestampString)
-        \(messageString)\(metadataString)
+        \(messageString)
+        \(sourceLocation)\(metadataString)
         """
     }
 
