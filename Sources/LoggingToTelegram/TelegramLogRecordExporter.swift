@@ -93,7 +93,8 @@ public struct TelegramLogRecordExporter: LogRecordExporter, Sendable {
         let timestampString = escapeMarkdownV2(dateFormatter.string(from: timestamp))
 
         let levelString = escapeMarkdownV2(record.level.rawValue.uppercased())
-        let messageString = escapeMarkdownV2(record.message.description)
+        // let messageString = escapeMarkdownV2(record.message.description)
+        let messageString = record.message.description
         // Format source location
         let fileString = escapeMarkdownV2(record.file)
         let functionString = escapeMarkdownV2(record.function)
@@ -108,14 +109,17 @@ public struct TelegramLogRecordExporter: LogRecordExporter, Sendable {
             // Format metadata dictionary nicely
             let formattedMetadata = record.metadata
                 .map { key, value in "\(escapeMarkdownV2(key)): \(escapeMarkdownV2("\(value)"))" }
+                .sorted(by: <)
                 .joined(separator: "\n")
             metadataString = "\n\n*Metadata:*\n```\n\(formattedMetadata)\n```"
         }
 
         return """
         *\(levelString)* \\| \(timestampString)
-        \(messageString)
-        \(sourceLocation)\(metadataString)
+
+        \(messageString)\(metadataString)
+
+        \(sourceLocation)
         """
     }
 

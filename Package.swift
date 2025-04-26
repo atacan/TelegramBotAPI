@@ -43,6 +43,10 @@ let package = Package(
             dependencies: ["TelegramBotAPI_AHC"],
             resources: [.copy("Resources")]
         ),
+        .testTarget(
+            name: "LoggingToTelegramTests",
+            dependencies: ["LoggingToTelegram"],
+        ),
         .executableTarget(
             name: "Prepare",
             dependencies: []
