@@ -254,4 +254,5 @@ This package is available under the [MIT License](LICENSE).
 ## Credits
 
 - Generated using the [Swift OpenAPI Generator](https://github.com/apple/swift-openapi-generator)
+- The openapi schema is from [tdlight-team/tdlight-telegram-bot-api](https://github.com/tdlight-team/tdlight-telegram-bot-api/blob/master/LICENSE_1_0.txt). See its license for more details.
 - Powered by [AsyncHTTPClient](https://github.com/swift-server/async-http-client) and [Swift-Log](https://github.com/apple/swift-log)
