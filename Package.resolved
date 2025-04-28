@@ -1,5 +1,5 @@
 {
-  "originHash" : "f59b936792c7bfdfce7a81a7d6bb43f4a2bac7de69c0b9f68a592a35f0a39d33",
+  "originHash" : "2541672e63edaccb2b6eebb33adfb0cafc6e9297975405c090dd52a4e171d532",
   "pins" : [
     {
       "identity" : "async-http-client",
@@ -188,6 +188,15 @@
       "state" : {
         "revision" : "a34201439c74b53f0fd71ef11741af7e7caf01e1",
         "version" : "1.4.2"
+      }
+    },
+    {
+      "identity" : "swiftlogexport",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/atacan/SwiftLogExport",
+      "state" : {
+        "branch" : "main",
+        "revision" : "8c8237fc4b6eea2d3ab84937732a206f1eae6892"
       }
     },
     {
