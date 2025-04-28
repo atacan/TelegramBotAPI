@@ -18,7 +18,7 @@ public struct TelegramLogRecord: LogRecord, Equatable, Sendable {
     public var line: UInt
 
     // Initializer matching DefaultLogRecord for convenience
-    init(
+    public init(
         label: String,
         message: Logger.Message,
         level: Logger.Level,

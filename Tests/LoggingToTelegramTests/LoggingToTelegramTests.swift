@@ -35,7 +35,7 @@ struct LoggingToTelegramTests {
 
         let logger = Logger(label: "YourApp") { label in
             // This factory creates the handler using the shared processor
-            TelegramLoggingHandler(
+            LoggingHandler(
                 label: label,
                 processor: batchProcessor
             )
