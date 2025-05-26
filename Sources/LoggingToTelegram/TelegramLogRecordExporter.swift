@@ -93,15 +93,16 @@ public struct TelegramLogRecordExporter: LogRecordExporter, Sendable {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
         dateFormatter.timeZone = TimeZone.current // Or UTC, etc.
-        let timestampString = escapeMarkdownV2(dateFormatter.string(from: timestamp))
+        let timestampString = Self.escapeMarkdownV2(dateFormatter.string(from: timestamp))
         let labelString = record.label
-        let levelString = escapeMarkdownV2(record.level.rawValue.uppercased())
-        // let messageString = escapeMarkdownV2(record.message.description)
+        let levelString = Self.escapeMarkdownV2(record.level.rawValue.uppercased())
+        // The users should escape what they want, otherwise they won't be able to use their own markdown
+        // let messageString = Self.escapeMarkdownV2(record.message.description)
         let messageString = record.message.description
         // Format source location
-        let fileString = escapeMarkdownV2(record.file)
-        let functionString = escapeMarkdownV2(record.function)
-        let lineString = escapeMarkdownV2("\(record.line)")
+        let fileString = Self.escapeMarkdownV2(record.file)
+        let functionString = Self.escapeMarkdownV2(record.function)
+        let lineString = Self.escapeMarkdownV2("\(record.line)")
         let sourceLocation = "\(fileString):\(lineString) \\- `\(functionString)`"
 
         // Improved metadata formatting
@@ -111,7 +112,7 @@ public struct TelegramLogRecordExporter: LogRecordExporter, Sendable {
         } else {
             // Format metadata dictionary nicely
             let formattedMetadata = record.metadata
-                .map { key, value in "\(escapeMarkdownV2(key)): \(escapeMarkdownV2("\(value)"))" }
+                .map { key, value in "\(Self.escapeMarkdownV2(key)): \(Self.escapeMarkdownV2("\(value)"))" }
                 .sorted(by: <)
                 .joined(separator: "\n")
             metadataString = "\n\n*Metadata:*\n```\n\(formattedMetadata)\n```"
@@ -128,7 +129,7 @@ public struct TelegramLogRecordExporter: LogRecordExporter, Sendable {
     }
 
     // Reusing the escape function (could be moved to a shared utility location)
-    private func escapeMarkdownV2(_ text: String) -> String {
+    public static func escapeMarkdownV2(_ text: String) -> String {
         // Note: Telegram MarkdownV2 requires escaping characters like '-', '=', '|', '{', '}', '.', '!'
         // Ensure all required characters are included.
         let specialCharacters = ["_", "*", "[", "]", "(", ")", "~", "`", ">", "#", "+", "-", "=", "|", "{", "}", ".", "!"]
