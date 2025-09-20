@@ -21,7 +21,7 @@ swift package add-target Prepare --type executable
 # Add test targets
 # swift package add-target ${PROJECT_NAME}Tests --type test --dependencies ${PROJECT_NAME}
 
-# Add target dependencies for AHC
+# Add target dependencies for
 swift package add-target-dependency OpenAPIRuntime ${PROJECT_NAME} --package swift-openapi-runtime
 swift package add-target-dependency OpenAPIAsyncHTTPClient ${PROJECT_NAME} --package swift-openapi-async-http-client
 
@@ -32,7 +32,7 @@ sed -i '' '0,/name: "'"${PROJECT_NAME}"'",/{s/name: "'"${PROJECT_NAME}"'",/name:
 mkdir -p Tests/${PROJECT_NAME}Tests/Resources
 touch Tests/${PROJECT_NAME}Tests/Resources/.gitkeep
 
-# Create OpenAPI related files in project AHC
+# Create OpenAPI related files in project
 mkdir assets
 # touch assets/openapi.yaml
 # touch assets/original.yaml
